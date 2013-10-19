@@ -10,6 +10,12 @@ $widthSite : 1024px;
 }
 
 header {
+    .logo {
+        width: 200px;
+        height: 100px;
+        background-color: grey;
+        margin : 10px;
+    }
     nav {
         ul {
         width: 100%;
