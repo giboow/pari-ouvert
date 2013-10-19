@@ -47,6 +47,13 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
         return new Response("Il y a une erreur dans le nombre de places !", 400);
     }
 
+    $mise = $request->get('mise');
+    $err_range = $app['validator']->validateValue($mise, new Assert\Range(array('min' =>  1)));
+
+    if (count($err_range) != 0 || !ctype_digit($mise)){
+        return new Response("Il y a une erreur dans la mise !", 400);
+    }
+
     //everything seems OK, just commit to the db
     $app['db']->insert('pari_parking', array(
 					     'user_id' => $userId,
@@ -54,7 +61,6 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
 					     'nb_place_pari' => $nbplaces,
 					     'date_pari' => $datepari,
 					     'date_create' => $current_date,
-					     
 					     ));
     return new Response("Le pari a été enregistré !", 201);
   });
