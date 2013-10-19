@@ -24,9 +24,9 @@ CREATE TABLE `pari_parking` (
   `parking_id` mediumint(8) unsigned NOT NULL,
   `nb_place_pari` mediumint(8) unsigned NOT NULL,
   `nb_place_reel` mediumint(8) unsigned NOT NULL,
-  `date_pari` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_pari` timestamp,
   `date_traite` timestamp NULL DEFAULT NULL,
-  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_create` timestamp,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,7 +43,7 @@ CREATE TABLE `pari_traffic` (
   `tps_trajet_pari` mediumint(8) unsigned NOT NULL,
   `tps_trajet_reel` mediumint(8) unsigned NOT NULL,
   `date_pari` datetime NOT NULL,
-  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_create` timestamp NOT NULL,
   `date_traite` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
