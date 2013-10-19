@@ -1,8 +1,10 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
 
+$loader = require_once __DIR__.'/../vendor/autoload.php';
+$loader->add("PariOuvert", "../src/lib/");
 $app = new Silex\Application();
+$app["config"] = require 'configApp.php';
 
 include 'config.php';
 

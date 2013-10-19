@@ -34,17 +34,6 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 ));
 
 
-$userServiceProvider = new SimpleUser\UserServiceProvider();
-$app->register($userServiceProvider);
-$app['user.controller']->setTemplates(
-        array(
-                "login" => "user/login.twig",
-                "register" => "user/register.twig",
-                "list" => "user/list.twig",
-                "view" => "user/view.twig",
-                "edit" => "user/edit.twig",
-        )
-);
 
 
 
@@ -64,8 +53,6 @@ $app->register(
 
 
 
-$app->mount('/user', $userServiceProvider);
-
 $app->register(
         new Silex\Provider\TwigServiceProvider(),
         array(
@@ -73,4 +60,18 @@ $app->register(
                 'debug' => true,
         )
 );
+
+$userServiceProvider = new SimpleUser\UserServiceProvider();
+$app->register($userServiceProvider);
+$app['user.controller']->setTemplates(
+    array(
+        "login" => "user/login.twig",
+        "register" => "user/register.twig",
+        "list" => "user/list.twig",
+        "view" => "user/view.twig",
+        "edit" => "user/edit.twig",
+    )
+);
+$app->mount('/user', $userServiceProvider);
+
 
