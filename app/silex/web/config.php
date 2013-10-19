@@ -73,3 +73,4 @@ $app->register(
                 'debug' => true,
         )
 );
+
