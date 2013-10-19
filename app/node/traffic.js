@@ -1,9 +1,10 @@
+
 var connection = function() {
 	var mysql      = require('mysql');
 	var connection = mysql.createConnection({
 	    host     : 'localhost',
-	    user     : 'startup',
-	    password : 'secret',
+	    user     : 'root',
+	    password : 'azerty1',
 	    database : 'pariouvert',
 	});
 
@@ -13,36 +14,37 @@ var connection = function() {
 
 var mysql = connection();
 
-var parkingCalcGain = function(parie, theorique, mise, date_mise) {
+var trafficCalcGain = function(parie, theorique, mise, date_mise) {
 	if (parie == theorique) {
+		console.log("C'est gagné");
 		return mise * 2;
 	}
+	console.log(parie + ' ' + theorique);
 	return 0;
 }
 
-var parkingBet = function(map) {
-	mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
+var trafficBet = function(map) {
+	mysql.query('SELECT * FROM pari_traffic WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari)', function(err, rows, fields) {
 		if (err) throw err;
 		rows.forEach(function(line) {
-			gain = parkingCalcGain(line["nb_place_pari"], map[line["parking_id"]],  line["mise"], line["date_create"]);	
-			mysql.query('UPDATE pari_parking SET date_traite = now(), gain = '+gain+ ' WHERE id = ' + line['id'], function(err, rows, fields) {
-				if (err) throw err;		
+			gain = trafficCalcGain(line["tps_trajet_pari"], map[line["troncon_id"]],  line["mise"], line["date_create"]);
+			mysql.query('UPDATE pari_traffic SET date_traite = now(), gain = '+gain+ ' WHERE id = ' + line['id'], function(err, rows, fields) {
+				if (err) throw err;
 			});
 			mysql.query('UPDATE users SET gain = gain + '+gain+' WHERE id = ' + line['user_id'], function(err, rows, fields) {
 				if (err) throw err;
 			});
 		});
-		
 	});
 }
 
-var parking = function() {
+var traffic = function() {
 
     var http = require('http');
     var options = {
 	host: 'data.nantes.fr',
 	port: 80,
-	path: '/api/getDisponibiliteParkingsPublics/1.0/QWZ0V8G15EO65QL/?output=json'
+	path: '/api/getTempsParcours/1.0/QWZ0V8G15EO65QL/?output=json'
     };
 
     callback = function(response) {
@@ -60,29 +62,27 @@ var parking = function() {
 		    console.log("KO - exception JSON.parse()");
 		    return false;
 		}
-		var date = new Date();
 
 		if (json['opendata']
 		    && json['opendata']['answer']
 		    && json['opendata']['answer']['data']
-		    && json['opendata']['answer']['data']['Groupes_Parking'])
+		    && json['opendata']['answer']['data']['Itineraires'])
 		    {
-			json = json.opendata.answer.data.Groupes_Parking;
+			json = json.opendata.answer.data.Itineraires.Itineraire;
     			var map = new Object();
-    			var map2 = new Object();
-			json['Groupe_Parking'].forEach(function(a) {
-				map[a['Grp_identifiant']] = a['Grp_disponible'];
-			console.log(a['Grp_nom'] + '\t\t' + a['Grp_identifiant']);
+			json.forEach(function(a) {
+			    map[a['Identifiant']] = a['Temps'];
 			});
-			parkingBet(map);
+			trafficBet(map);
+			console.log("Traffic done");
 		    }
 		else
-			console.log("Erreur webservice Parking");
+			console.log("Erreur webservice Traffic");
 	    });
     }
     http.request(options, callback).end();
 }
 
 exports.load = function (timeUpdate) {
-    setInterval(parking, timeUpdate);
+    setInterval(traffic, timeUpdate);
 };
