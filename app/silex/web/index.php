@@ -28,17 +28,17 @@ $app->register(
     )
 );
 
-$app->get('/index', function() use ($app) {
+$app->get('/', function() use ($app) {
     return $app['twig']->render(
-            "index.twig", array()
+        "index.twig", array("msg" => "hello")
     );
 });
 
 
 
 // page de pari
-$app->get('/pari/{type}', function($type) {
-    return 'Hello!';
+$app->get('/pari/{type}', function($type) use ($app) {
+
 });
 
 // page point
