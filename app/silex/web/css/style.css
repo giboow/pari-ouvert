@@ -1,26 +1,13 @@
-/* line 7, ../../compass/style.scss */
-#site {
-  width: 1024px;
-  margin: 0 auto;
+/* line 6, ../../compass/style.scss */
+footer #copy {
+  width: 100%;
+  text-align: center;
 }
 
-/* line 12, ../../compass/style.scss */
-header {
-  margin: 20px 0 20px 0;
-}
-/* line 13, ../../compass/style.scss */
-header .logo {
-  width: 200px;
-  height: 100px;
-  background-color: grey;
-  margin: 10px;
-}
-/* line 20, ../../compass/style.scss */
-header nav ul {
-  width: 100%;
-}
-/* line 22, ../../compass/style.scss */
-header nav ul li {
-  display: inline;
-  margin: 20px;
+@media only screen and (min-device-width: 728px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* line 17, ../../compass/style.scss */
+  #site {
+    width: 720px;
+    margin: 0 auto;
+  }
 }
