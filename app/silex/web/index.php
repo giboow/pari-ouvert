@@ -47,4 +47,5 @@ $app->get('/score', function() {
 
 });
 
+
 $app->run();
