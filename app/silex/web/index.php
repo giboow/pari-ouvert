@@ -10,6 +10,7 @@ include 'config.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints as Assert;
 
 $app->get('/', function() use ($app) {
     return $app['twig']->render(
@@ -28,12 +29,25 @@ $app->get('/pari/{type}', function($type) use ($app) {
 $app->post('/pari/{type}', function(Request $request) use ($app){
 
     $userId = $request->get('userid');
+
     $current_date = new DateTime();
     $current_date = $current_date->format('dd-mm-YYYY');
-    $datepari = $request->get('datepari');
-    $parkingid = $request->get('parkingid');
-    $nbplaces = $request->get('nbplaces');
 
+    $parkingid = $request->get('parkingid');
+
+    $datepari = $request->get('datepari');
+    if(!preg_match('/^(0[1-9]|1[0-9]|2[0-9]|3[01])\/(0[1-9]|1[012])\/[0-9]{4}$/',$datepari)){
+        return new Response("Il y a une erreur dans la date du pari !", 400);
+    }
+
+    $nbplaces = $request->get('nbplaces');
+    $err_range = $app['validator']->validateValue($nbplaces, new Assert\Range(array('min' =>  0)));
+
+    if (count($err_range) != 0 || !ctype_digit($nbplaces)){
+        return new Response("Il y a une erreur dans le nombre de places !", 400);
+    }
+
+    //everything seems OK, just commit to the db
     $app['db']->insert('pari_parking', array(
 					     'user_id' => $userId,
 					     'parking_id' => $parkingid,
@@ -42,7 +56,6 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
 					     'date_create' => $current_date,
 					     
 					     ));
-    
     return new Response("Le pari a été enregistré !", 201);
   });
 
