@@ -72,6 +72,7 @@ var parking = function() {
     			var map2 = new Object();
 			json['Groupe_Parking'].forEach(function(a) {
 				map[a['Grp_identifiant']] = a['Grp_disponible'];
+			console.log(a['Grp_nom'] + '\t\t' + a['Grp_identifiant']);
 			});
 			parkingBet(map);
 		    }
