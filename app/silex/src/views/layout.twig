@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>{% block title %}Pari Ouvert{% endblock %}</title>
+
+        {% block head %}
+        {% endblock %}
+
+        {% block style %}
+        <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+        {% endblock %}
+
+        {% block script %}
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="site">
+            <header>
+                <nav>
+                    <ul class="nav">
+                        <li><a href="{{ path('user.list') }}"><i class="icon-list"></i> List users</a></li>
+                        {% if app.user %}
+                            <li><a href="{{ path('user') }}"><i class="icon-user"></i> {{ app.user.displayName }}</a></li>
+                            <li><a href="{{ path('user.logout') }}"><i class="icon-off"></i> Sign out</a></li>
+                        {% else %}
+                            <li><a href="{{ path('user.login') }}">Sign in</a></li>
+                            <li><a href="{{ path('user.register') }}">Create account</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </header>
+            <div id="content">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

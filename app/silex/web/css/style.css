@@ -1,0 +1,19 @@
+/* line 7, ../../compass/style.scss */
+#site {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+/* line 12, ../../compass/style.scss */
+header {
+  margin: 20px 0 20px 0;
+}
+/* line 14, ../../compass/style.scss */
+header nav ul {
+  width: 100%;
+}
+/* line 16, ../../compass/style.scss */
+header nav ul li {
+  display: inline;
+  margin: 20px;
+}
