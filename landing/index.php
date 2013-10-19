@@ -9,7 +9,7 @@
     <body>
         <?php
             if (isset($_POST['email'])){
-                $file = fopen("email.csv", "a+");
+                $file = fopen("../email.csv", "a+");
                 fputcsv($file, array($_POST['email']));
                 fclose($file);
             }
