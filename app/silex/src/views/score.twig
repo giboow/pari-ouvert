@@ -1,0 +1,21 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+Score des utilisateurs
+{% if type is defined %}
+ayant parié sur le {{ type }}
+{% endif %}
+:
+<table>
+    <tr>
+	<th>Nom</th>
+	<th>Points</th>
+    </tr>
+    {% for user in users  %}
+       <tr>
+		<td>{{ user.name }}</td>
+		<td>{{ user.gain }}</td>
+       </tr>
+    {% endfor %}
+</table>
+{% endblock %}

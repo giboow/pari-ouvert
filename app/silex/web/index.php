@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../src/score.inc.php';
 
 $app = new Silex\Application();
 
@@ -19,11 +20,11 @@ $app->get('/pari/{type}', function($type) use ($app) {
 });
 
 // page point
-$app->get('/score', function() {
-    return 'Hello!';
-});
-$app->get('/score/{type}', function() {
-    return 'Hello!';
+$app->get('/score', function() use ($app) {
+    return ($app['twig']->render("score.twig", scorePage($app)));
+  });
+$app->get('/score/{type}', function($type) use ($app) {
+    return ($app['twig']->render("score.twig", scorePageType($app, $type)));
 });
 
 
