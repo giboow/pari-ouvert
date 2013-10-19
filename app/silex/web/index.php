@@ -59,6 +59,7 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
 					     'user_id' => $userId,
 					     'parking_id' => $parkingid,
 					     'nb_place_pari' => $nbplaces,
+                         'mise' => $mise,
 					     'date_pari' => $datepari,
 					     'date_create' => $current_date,
 					     ));
