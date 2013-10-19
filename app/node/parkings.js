@@ -23,7 +23,7 @@ var parkingCalcGain = function(parie, theorique, mise, date_mise) {
 }
 
 var parkingBet = function(map) {
-	mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari)', function(err, rows, fields) {
+	mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
 		if (err) throw err;
 		console.log(rows);
 		rows.forEach(function(line) {
@@ -72,11 +72,11 @@ var parking = function() {
 		    {
 			json = json.opendata.answer.data.Groupes_Parking;
     			var map = new Object();
+    			var map2 = new Object();
 			json['Groupe_Parking'].forEach(function(a) {
 				map[a['Grp_identifiant']] = a['Grp_disponible'];
 			});
 			parkingBet(map);
-			console.log("Parking done");
 		    }
 		else
 			console.log("Erreur webservice Parking");
