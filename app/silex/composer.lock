@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ed41d34231dca39b01d3afbc3a9dde12",
+    "hash": "dd46602b94c1147528c2c4d7dd7f3662",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -465,18 +465,12 @@
             "time": "2013-01-12 18:59:04"
         },
         {
-            "name": "jasongrimes/silex-simpleuser",
-            "version": "0.6.3",
+            "name": "giboow/silex-simpleuser",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jasongrimes/silex-simpleuser.git",
-                "reference": "4142c1c10a9c522eca9aa9a34780afd0323f4c8f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jasongrimes/silex-simpleuser/zipball/4142c1c10a9c522eca9aa9a34780afd0323f4c8f",
-                "reference": "4142c1c10a9c522eca9aa9a34780afd0323f4c8f",
-                "shasum": ""
+                "url": "https://github.com/giboow/silex-simpleuser",
+                "reference": "1b165f8dee2cca3ea8d8062f36983f88ce51c8a7"
             },
             "require": {
                 "php": ">=5.3.0"
@@ -487,7 +481,6 @@
                     "SimpleUser": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -505,7 +498,7 @@
                 "user",
                 "user provider"
             ],
-            "time": "2013-04-24 04:25:30"
+            "time": "2013-10-19 13:41:09"
         },
         {
             "name": "monolog/monolog",
@@ -2221,9 +2214,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "giboow/silex-simpleuser": 20
+    },
     "platform": [
 
     ],
