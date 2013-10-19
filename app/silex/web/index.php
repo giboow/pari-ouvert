@@ -2,6 +2,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+$app = new Silex\Application();
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array('db.options' => array(
 											 'driver'    => 'pdo_mysql',
@@ -13,11 +14,10 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array('db.options' 
 											 ),
 								   ));
 
-$app = new Silex\Application();
-
 // page de pari
 $app->get('/pari/{type}', function($type) {
     return 'Hello!';
+  });
 
 // page point
 $app->get('/score', function() {
