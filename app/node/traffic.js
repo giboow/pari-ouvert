@@ -1,18 +1,6 @@
 
-var connection = function() {
-	var mysql      = require('mysql');
-	var connection = mysql.createConnection({
-	    host     : 'localhost',
-	    user     : 'root',
-	    password : 'azerty1',
-	    database : 'pariouvert',
-	});
-
-	connection.connect();
-	return connection;
-}
-
-var mysql = connection();
+var config		= require("./config");
+var mysql		= config.connect();
 
 var trafficCalcGain = function(parie, theorique, mise, date_mise) {
 	if (parie == theorique) {
@@ -24,7 +12,7 @@ var trafficCalcGain = function(parie, theorique, mise, date_mise) {
 }
 
 var trafficBet = function(map) {
-	mysql.query('SELECT * FROM pari_traffic WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari)', function(err, rows, fields) {
+	mysql.query('SELECT * FROM pari_traffic WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
 		if (err) throw err;
 		rows.forEach(function(line) {
 			gain = trafficCalcGain(line["tps_trajet_pari"], map[line["troncon_id"]],  line["mise"], line["date_create"]);

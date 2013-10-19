@@ -1,17 +1,6 @@
-var connection = function() {
-	var mysql      = require('mysql');
-	var connection = mysql.createConnection({
-	    host     : 'localhost',
-	    user     : 'startup',
-	    password : 'secret',
-	    database : 'pariouvert',
-	});
 
-	connection.connect();
-	return connection;
-}
-
-var mysql = connection();
+var config			= require("./config");
+var mysql			= config.connect();
 
 var parkingCalcGain = function(parie, theorique, mise, date_mise) {
 	if (parie == theorique) {
