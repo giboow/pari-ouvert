@@ -44,7 +44,10 @@ $app->register($userServiceProvider);
 $app['user.controller']->setTemplates(
     array(
         "login" => "user/login.twig",
-        "register" => "user/register.twig"
+        "register" => "user/register.twig",
+        "list" => "user/list.twig",
+        "view" => "user/view.twig",
+        "edit" => "user/edit.twig",
     )
 );
 
