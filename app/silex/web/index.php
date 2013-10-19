@@ -96,7 +96,6 @@ $app->get('/pari/{type}', function($type) use ($app) {
 // page point
 $app->get('/score', function() {
     return 'Hello!';
-
 });
 
 

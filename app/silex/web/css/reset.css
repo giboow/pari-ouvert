@@ -1,0 +1,40 @@
+/* line 1, ../../compass/reset.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, ../../compass/reset.scss */
+.clear {
+  clear: both;
+}
+
+/* line 10, ../../compass/reset.scss */
+a {
+  text-decoration: none;
+  color: black;
+}
+/* line 13, ../../compass/reset.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 18, ../../compass/reset.scss */
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 21, ../../compass/reset.scss */
+ul li {
+  list-style: none;
+}
+
+/* line 26, ../../compass/reset.scss */
+table {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+/* line 30, ../../compass/reset.scss */
+table tr td {
+  border: solid 1px black;
+}
