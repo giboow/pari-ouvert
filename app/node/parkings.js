@@ -15,17 +15,14 @@ var mysql = connection();
 
 var parkingCalcGain = function(parie, theorique, mise, date_mise) {
 	if (parie == theorique) {
-		console.log("C'est gagné");
 		return mise * 2;
 	}
-	console.log(parie + ' ' + theorique);
 	return 0;
 }
 
 var parkingBet = function(map) {
 	mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
 		if (err) throw err;
-		console.log(rows);
 		rows.forEach(function(line) {
 			gain = parkingCalcGain(line["nb_place_pari"], map[line["parking_id"]],  line["mise"], line["date_create"]);	
 			mysql.query('UPDATE pari_parking SET date_traite = now(), gain = '+gain+ ' WHERE id = ' + line['id'], function(err, rows, fields) {
