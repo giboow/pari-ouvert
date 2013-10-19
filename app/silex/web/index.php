@@ -22,6 +22,9 @@ $app->get('/pari/{type}', function($type) use ($app) {
 $app->get('/score', function() {
     return 'Hello!';
 });
+$app->get('/score/{type}', function() {
+    return 'Hello!';
+});
 
 
 $app->run();
