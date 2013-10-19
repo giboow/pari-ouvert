@@ -1,30 +1,7 @@
 
-
-var pushDataCouchDB = function(data) {
+var parking = function() {
 
     var http = require('http');
-
-    var request = new http.ClientRequest({
-	host: '127.0.0.1',
-	port: 5984,
-	path: '/parkings_nantes',
-	method: 'post',
-	headers: {
-            "Content-Type": "application/json",
-	}
-    });
-
-    request.on("error", function(er) {
-	console.log("exception 3 catched : " + er);
-    });
-
-    request.end(data);
-}
-
-var main = function()
-{
-    var http = require('http');
-
     var options = {
 	host: 'data.nantes.fr',
 	port: 80,
@@ -38,6 +15,7 @@ var main = function()
 	response.on('data', function (chunck) {
 	    data += chunck;
 	});
+
 
 	response.on('end', function () {
 
@@ -55,35 +33,29 @@ var main = function()
 		    && json['opendata']['answer']['data']['Groupes_Parking'])
 		    {
 			json = json.opendata.answer.data.Groupes_Parking;
-			json['timestamp'] = {
-			    'timestamp': date.getTime(),
-			    'year': date.getFullYear(),
-			    'month': date.getMonth() + 1,
-			    'day': date.getDate(),
-			    'hour': date.getHours(),
-			    'minutes': date.getMinutes(),
-			    'seconds': date.getSeconds(),
-			};
-
-			var str = JSON.stringify(json);
-
-			pushDataCouchDB(str);
-			//console.log(str);
-			console.log("OK");
+    			var map = new Object();
+			json['Groupe_Parking'].forEach(function(a) {
+				map[a['Grp_nom']] = a['Grp_disponible'];
+			});
+			console.log(map);
+			console.log("Parking done");
 		    }
 		else
-		    {
-			console.log("KO");
-		    }
+			console.log("Erreur webservice Parking");
 	    });
     }
 
     http.request(options, callback).end();
 }
 
+var main = function()
+{
+	parking();	
+}
 
-//main();
-    setInterval(main, 60000);
+
+main();
+//    setInterval(main, 60000);
 
 process.on('uncaughtException', function(err) {
 	console.log("uncaughtException : " + err);
