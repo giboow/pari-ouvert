@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+   <form method="post">
+   Parking :
+   <select name="parkingid">
+   {% for item in list %}
+      <option value="{{ item.id }}"> {{ item.name }} </option>
+   {% endfor %}
+   </select> <br/>
+   Places restantes :
+   <input type="text" name="nbplaces" value="0" />  <br/>
+   Date du pari :
+   <input type="date" name="datepari" value="20/12/2013" />  <br/>
+   <input type="hidden" name="userid" value="{{ user.id }}" />
+   <input type="submit" value="Valider" />
+   </form>
+{% endblock %}
