@@ -21,4 +21,9 @@ class UserManager extends \SimpleUser\UserManager
 
     }
 
+    public function supportsClass($class)
+    {
+        return $class === '\PariOuvert\User';
+    }
+
 }
