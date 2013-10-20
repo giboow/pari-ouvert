@@ -30,7 +30,7 @@
 
             <div data-role="header">
                 <a href="#mypanel">Open panel</a>
-                <h1>My Title</h1>
+                <h1>PariOuvert.fr</h1>
             </div><!-- /header -->
 
             <div data-role="content">
@@ -46,13 +46,13 @@
 
             <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
                 <ul class="nav" data-role="listview">
-                    <li><a href="{{ path('user.list') }}"><i class="icon-list"></i> List users</a></li>
+                    <li><a href="/">Home</a></li>
                     {% if app.user %}
-                    <li><a href="{{ path('user') }}"><i class="icon-user"></i> {{ app.user.displayName }}</a></li>
-                    <li><a href="{{ path('user.logout') }}"><i class="icon-off"></i> Sign out</a></li>
+                    <li><a href="{{ path('user') }}"><i class="icon-user"></i>profile</a></li>
+                    <li><a href="{{ path('user.logout') }}"><i class="icon-off"></i> Se déconnercter</a></li>
                     {% else %}
-                    <li><a href="{{ path('user.login') }}">Sign in</a></li>
-                    <li><a href="{{ path('user.register') }}">Create account</a></li>
+                    <li><a href="{{ path('user.login') }}">Se connecter</a></li>
+                    <li><a href="{{ path('user.register') }}">S'inscrire</a></li>
                     {% endif %}
                 </ul>
             </div><!-- /panel -->
