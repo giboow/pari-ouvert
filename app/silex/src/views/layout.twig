@@ -31,9 +31,9 @@
     <body>
         <div id="site">
 
-
+            {% if(app.user) %}
             <header>
-                {% if(app.user) %}<a class="notif" title="notifications" href="/notifications">12</a>{% endif %}
+                <a class="notif" title="notifications" href="/notifications">12</a>
                 <a id="btPannel" href="/" title="menu">
                     <img src="/img/btn_sidemenu.jpg"/>
                 </a>
@@ -44,8 +44,12 @@
                 </div>
                 <div class="clear"></div>
             </header><!-- /header -->
-
-            <div id="content">
+            {% else %}
+            <header class="big" >
+                <img alt="" src="/img/big_header_login.jpg" width="720px" height="384px">
+            </header>
+            {% endif %}
+            <div id="content" class="big">
             {% if(app.user or app.request.server.get("REQUEST_URI") == "/user/login" or app.request.server.get("REQUEST_URI") == "/user/register") %}
                 {% block content %}
                 {% endblock content %}
