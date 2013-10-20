@@ -87,6 +87,9 @@ $app->match('/pari/parking', function (Request $request) use ($app) {
                          'date_pari' => $datepari->format('Y-m-d H:i:s'),
                          'date_create' => $datecreate->format('Y-m-d H:i:s'),
                          ));
+    $newgain = (intval(getUserMoney($userId)) - intval($mise));
+    $app['db']->update("users", array("gain" => $newgain), array("id"=> $userId));
+
     return $app->redirect("/");
 })
     ->method('POST') ;
@@ -129,6 +132,9 @@ $app->match('/pari/troncon', function (Request $request) use ($app) {
                          'date_pari' => $datepari->format('Y-m-d H:i:s'),
                          'date_create' => $datecreate->format('Y-m-d H:i:s'),
                          ));
+    $newgain = (intval(getUserMoney($userId)) - intval($mise));
+    $app['db']->update("users", array("gain" => $newgain), array("id"=> $userId));
+
     return $app->redirect("/");
 })
     ->method('POST') ;
@@ -136,7 +142,6 @@ $app->match('/pari/troncon', function (Request $request) use ($app) {
 
 // page point
 $app->get('/score', function() use ($app) {
-    var_dump($app['user.manager']->getCurrentUser());
     return ($app['twig']->render("score.twig", scorePage($app)));
   });
 $app->get('/score/{type}', function($type) use ($app) {
@@ -172,3 +177,8 @@ function tronconlist(){
     return $p;
 }
 
+function getUserMoney($userId){
+    global $app;
+    $p = $app['db']->fetchAll('SELECT gain FROM users WHERE id='. $userId . '');
+    return $p[0]['gain'];
+}
