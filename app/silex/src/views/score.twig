@@ -1,21 +1,26 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-Score des utilisateurs
+<div id="index">
+ <div class="action parking">
+                <img src="img/titre_classement.png" width="617px" height="114px"></img>
+        </div>
 {% if type is defined %}
 ayant parié sur le {{ type }}
 {% endif %}
-:
-<table>
-    <tr>
-	<th>Nom</th>
-	<th>Points</th>
-    </tr>
-    {% for user in users  %}
-       <tr>
-		<td>{{ user.name }}</td>
-		<td>{{ user.gain }}</td>
-       </tr>
+  
+<div style="float:left;">
+   {% for i in range(0, users| length - 1) %}
+ {{ i + 1 }}. <span style="color:#4BB5A3;">{{ attribute(users, i).name }}</span> 
     {% endfor %}
-</table>
+</div>
+<div style="float:right;">
+   {% for user in users %}<span style="color:#DF5A49">{{ user.gain }} pô </span>
+    {% endfor %}
+</div>
+
+
+<div id="clear"/>
+
+</div>
 {% endblock %}
