@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `pari_traffic` (
   `mise` mediumint(8) unsigned NOT NULL,
   `date_pari` datetime NOT NULL,
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `date_traite` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_traite` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
