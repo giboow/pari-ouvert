@@ -21,6 +21,7 @@ html, body {
 
 /* line 35, ../../compass/style.scss */
 header {
+  overflow: hidden;
   background: white;
   position: fixed;
   width: 100%;
@@ -34,13 +35,13 @@ header {
   }*/
   height: 101px;
 }
-/* line 40, ../../compass/style.scss */
+/* line 41, ../../compass/style.scss */
 header.ui-bar-a {
   background: white;
   color: black;
   text-shadow: none;
 }
-/* line 45, ../../compass/style.scss */
+/* line 46, ../../compass/style.scss */
 header .notif {
   float: right;
   border: solid 1px;
@@ -50,12 +51,11 @@ header .notif {
   padding: 5px 20px;
   margin: 20px;
 }
-/* line 54, ../../compass/style.scss */
+/* line 55, ../../compass/style.scss */
 header .logo {
   width: 451px;
   height: 101px;
   margin: 0 auto;
-  background: url("../img/logo_header.jpg") no-repeat;
 }
 /* line 69, ../../compass/style.scss */
 header a {

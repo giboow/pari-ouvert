@@ -33,6 +33,7 @@ html,body {
 
 
 header {
+    overflow: hidden;
     background : $white;
     //padding: 10px 0;
     position: fixed;
@@ -55,7 +56,6 @@ header {
         width: 451px;
         height: 101px;
         margin: 0 auto;
-        background: url("../img/logo_header.jpg") no-repeat;
     }
     /*#btPannel{
         border-radius: 0;
