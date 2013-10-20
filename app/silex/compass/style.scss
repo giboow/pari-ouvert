@@ -3,6 +3,7 @@
 @import "compass/css3/font-face";
 
 $white : #FFFFFF;
+$black : #000000;
 $grey : #D6DBDE;
 $green : #4BB5A3;
 $red: #df5a49;
@@ -52,6 +53,8 @@ footer {
     #copy{
         width: 100%;
         text-align: center;
+        color: $black;
+        text-shadow : none;
     }
     .etats {
         width: 400px;
@@ -91,7 +94,7 @@ footer {
 
 #content {
     background-color: $grey;
-    min-height:500px;
+    min-height:400px;
 }
 
 
