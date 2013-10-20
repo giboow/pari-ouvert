@@ -9,7 +9,7 @@ $app["config"] = require 'configApp.php';
 if(file_exists("configAppDev.php")) {
     $configDev = require "configAppDev.php";
     if (is_array($configDev))
-        $app['config'] = array_merge_recursive($configDev, $app['config']);
+        $app['config'] = array_replace_recursive($app['config'], $configDev);
 }
 
 
