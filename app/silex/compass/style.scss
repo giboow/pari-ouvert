@@ -14,8 +14,10 @@ $darkBlue: #334d5c;
 }
 
 .ui-header, .ui-footer {
-    position: fixed;
     width: 100%;
+    position: fixed !important;
+    text-shadow: none;
+    z-index: 100;
 }
 
 .ui-body-c, .ui-overlay-c {
@@ -73,27 +75,27 @@ footer {
         text-shadow : none;
     }
     .etats {
-        font-size: 0.8em;
-        width: 360px;
+        font-size: 0.7em;
+        width: 340px;
         margin: 0 auto;
         text-shadow : none;
         .points{
             padding: 10px 20px;
             background-color : $darkBlue;
             float: left;
-            width: 100px;
+            width: 85px;
             text-align: center;
         }
         .divider {
             border-left: 1px solid #808080;
             float: left;
             height: 35px;
-            margin: 0 20px;
+            margin: 0 10px;
             width: 1px;
         }
         .pariDispo{
             padding: 10px 20px;
-            width: 100px;
+            width: 85px;
             background-color : $green;
             float: left;
             text-align: center;
@@ -112,6 +114,7 @@ footer {
 #content {
     background-color: $grey;
     min-height:400px;
+    padding: 60px;
 }
 
 
