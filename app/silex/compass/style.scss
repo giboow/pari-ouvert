@@ -119,15 +119,14 @@ footer {
 #content {
     background-color: $grey;
     min-height:400px;
-    padding: 60px 0;
+    padding: 90px 0;
     width: 720px;
 }
 
 
 
 @media only screen
-and (min-device-width : 728px)
-and (max-device-width : 1024px)
+and (max-device-width : 720px)
 and (orientation : portrait) {
     #site {
         width: 720px;
