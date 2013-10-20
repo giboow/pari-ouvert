@@ -127,27 +127,45 @@ footer .etats .pariDispo {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0;
-  min-height: 2048px;
 }
-/* line 136, ../../compass/style.scss */
+/* line 135, ../../compass/style.scss */
 #content #index {
   margin-left: -20px;
   margin-top: -20px;
   width: 584px;
+  height: 100%;
   background-color: white;
   padding-top: 20px;
-  min-height: 1500px;
 }
 /* line 142, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
+/* line 145, ../../compass/style.scss */
+#content #index #pariDefi {
+  margin: 0 auto;
+  width: 300px;
+}
 /* line 148, ../../compass/style.scss */
+#content #index #pariDefi .pari {
+  background-color: #df5a49;
+  float: left;
+  padding: 10px;
+  margin: 0 10px;
+  color: white;
+}
+/* line 155, ../../compass/style.scss */
+#content #index #pariDefi .defi {
+  float: left;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+/* line 163, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 151, ../../compass/style.scss */
+/* line 166, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;
