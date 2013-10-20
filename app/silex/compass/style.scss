@@ -14,7 +14,7 @@ $darkBlue: #334d5c;
 }
 
 
-body {
+html,body {
     background-color: $grey;
     width: 720px;
 }
@@ -23,6 +23,8 @@ body {
 header {
     background : $white;
     padding: 10px 0;
+    position: fixed;
+    width: 720px;
     &.ui-bar-a {
         background: $white;
         color: black;
