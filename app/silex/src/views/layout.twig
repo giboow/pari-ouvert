@@ -25,23 +25,38 @@
         {% endblock %}
     </head>
     <body>
-        <div data-role="page">
+        <div id="site" data-role="page">
 
 
-            <div data-role="header">
-                <a href="#mypanel">Open panel</a>
-                <h1>PariOuvert.fr</h1>
-            </div><!-- /header -->
+            <header data-role="header" data-role="button" data-inline="true"	>
+                {% if(app.user) %}<div class="notif">12</div>{% endif %}
+                <a id="btPannel" href="#mypanel">
+                Menu
+                </a>
+                <div class="logo">PariOuvert.fr</div>
+                <div class="clear"></div>
+            </header><!-- /header -->
 
-            <div data-role="content">
+            <div id="content" data-role="content">
                 {% block content %}
                 {% endblock content %}
             </div><!-- /content -->
             <!-- footer -->
             <footer data-role="footer">
+                {% block footer %}
+                {% if(app.user) %}
+                <div class="etats">
+                    <div class="points">12 300 pô</div>
+                    <div class="divider"></div>
+                    <div class="pariDispo">Pari disponible</div>
+                    <div class="clear"></div>
+                </div>
+                {% else %}
                 <div id="copy">
                     pariouvert.fr &copy; {{ "now"|date("Y") }}
                 </div>
+                {% endif %}
+                {% endblock %}
             </footer>
 
             <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
