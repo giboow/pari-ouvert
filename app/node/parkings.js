@@ -2,27 +2,45 @@
 var config			= require("./config");
 var mysql			= config.connect();
 
-var parkingCalcGain = function(parie, theorique, mise, date_mise) {
-	if (parie == theorique) {
-		return mise * 2;
-	}
-	return 0;
+var commitGain		= function (gain, parking_id, user_id, pari_id) {
+    mysql.query('UPDATE pari_parking SET date_traite = now(), gain = ' + gain + ' WHERE id = ' + pari_id, function(err, rows, fields) {
+	if (err) throw err;
+    });
+    mysql.query('UPDATE users SET gain = gain + ' + gain + ' WHERE id = ' + user_id, function(err, rows, fields) {
+	if (err) throw err;
+    });
+};
+
+var parkingCalcGain = function(user_id, id_parking, pari, theorique, mise, date_mise, pari_id) {
+    mysql.query('SELECT id, size FROM parking WHERE id = ' + id_parking, function(err, rows, fields) {
+	if (err) throw err;
+	rows.forEach(function(line) {
+	    var size		= line["size"];
+	    var gain		= 0;
+	    var proximite	= 1 / (Math.abs(pari - theorique) + 1);	// multiplicateur de proximité : égal=1, éloigné=0.0001
+
+	    if (Math.abs(pari - theorique) > size / 10)
+		proximite = 0;
+
+	    gain = proximite						// multiplicateur de la proximité du pari
+		* ((size / 200) + 1)					// multiplicateur de la taille du parking
+		* mise;							// multiplicateur de la mise
+
+	    if (gain)
+		gain += mise;						// on récupère la mise ;-)
+
+	    commitGain(gain, id_parking, user_id, pari_id);
+	});
+    });
 }
 
 var parkingBet = function(map) {
-	mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
-		if (err) throw err;
-		rows.forEach(function(line) {
-			gain = parkingCalcGain(line["nb_place_pari"], map[line["parking_id"]],  line["mise"], line["date_create"]);	
-			mysql.query('UPDATE pari_parking SET date_traite = now(), gain = '+gain+ ' WHERE id = ' + line['id'], function(err, rows, fields) {
-				if (err) throw err;		
-			});
-			mysql.query('UPDATE users SET gain = gain + '+gain+' WHERE id = ' + line['user_id'], function(err, rows, fields) {
-				if (err) throw err;
-			});
-		});
-		
+    mysql.query('SELECT * FROM pari_parking WHERE date_traite IS NULL AND date(now()) = date(date_pari) AND hour(now()) = hour(date_pari) AND minute(now()) = minute(date_pari)', function(err, rows, fields) {
+	if (err) throw err;
+	rows.forEach(function(line) {
+	    parkingCalcGain(line['user_id'], line['parking_id'], line["nb_place_pari"], map[line["parking_id"]],  line["mise"], line["date_create"], line['id']);
 	});
+    });
 }
 
 var parking = function() {
@@ -35,7 +53,6 @@ var parking = function() {
     };
 
     callback = function(response) {
-
 	var data = '';
 
 	response.on('data', function (chunck) {
@@ -60,8 +77,7 @@ var parking = function() {
     			var map = new Object();
     			var map2 = new Object();
 			json['Groupe_Parking'].forEach(function(a) {
-				map[a['Grp_identifiant']] = a['Grp_disponible'];
-			console.log(a['Grp_nom'] + '\t\t' + a['Grp_identifiant']);
+			    map[a['Grp_identifiant']] = a['Grp_disponible'];
 			});
 			parkingBet(map);
 		    }
@@ -74,4 +90,5 @@ var parking = function() {
 
 exports.load = function (timeUpdate) {
     setInterval(parking, timeUpdate);
+    parking();
 };
