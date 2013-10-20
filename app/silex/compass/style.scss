@@ -16,6 +16,7 @@ $darkBlue: #334d5c;
 
 html,body {
     background-color: $grey;
+    margin : 0;
 }
 
 
@@ -107,17 +108,11 @@ footer {
     }
 }
 
-.leftBorder{
-    width: 100px;
-    height: 100%;
-    float: right;
-    backgroun-color: grey;
-
-}
 
 #content {
     background-color: $grey;
     min-height:400px;
     padding: 90px 20px;
+    margin: 0;
 }
 
