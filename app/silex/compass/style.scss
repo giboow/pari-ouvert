@@ -33,6 +33,7 @@ html,body {
 
 
 header {
+   z-index: 100000;
     overflow: hidden;
     background : $white;
     //padding: 10px 0;
@@ -136,28 +137,44 @@ footer {
         margin-left: -20px;
         margin-top: -20px;
         width: 584px;
-        height: 100%;
         background-color: $white;
         padding-top: 20px;
         .action {
             margin: 20px 0;
         }
-        #pariDefi {
-            margin: 0 auto;
-            width: 300px;
-            .pari {
-                background-color : $red;
-                float: left;
-                padding: 10px;
-                margin: 0 10px;
-                color: $white;
-            }
-            .defi {
-                float: left;
-                padding:  10px 20px;
-                margin: 0 10px;
-            }
+        .action:first-child {
+            margin-top: 40px;
         }
+    }
+    #submenu{
+        position: absolute;
+        width: 100%;
+        background-color: $white;
+        padding: 0 -20px;
+        padding-bottom: 20px;
+        #pariDefi {
+                padding-top: 10px;
+                width: 600px;
+                margin: 0 auto;
+
+                a {
+                    cursor: pointer;
+                    &.selected {
+                        color: $white;
+                        background-color: $red;
+                    }
+                    padding:  10px 20px;
+                    margin: 0 10px;
+                    float: left;
+                    &.defi {
+                        float: right;
+                    }
+                    &.pari {
+                        float: left;
+                    }
+
+                }
+            }
     }
 
     #user {

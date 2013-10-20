@@ -1,15 +1,27 @@
 {% extends "layout.twig" %}
 
+
+
 {% block content %}
     <div id="index">
-        <div id="pariDefi">
-            <div class="pari">Parier</div>
-            <div class="defi">Défier</div>
+        <div id="submenu">
+            <div id="pariDefi">
+                <a class="defi" href="/defi">Défier</a>
+                <a class="pari selected" href="/pari">Parier</a>
+            </div>
             <div class="clear"></div>
+        </div>
+        <div style="height:90px">
         </div>
         <div class="action parking">
             <a href="/pari/parking">
                 <img src="/img/btn_parier_parking.png" width="617px" height="230px"></img>
+            </a>
+        </div>
+        <div class="action trafic">
+            <a href="/pari/troncon">
+            <img src="/img/btn_parier_trafic.png" width="617px" height="230px"></img>
+
             </a>
         </div>
         <div class="action transport">
@@ -17,11 +29,8 @@
                 <img src="/img/btn_parier_transports.png" width="617px" height="230px"></img>
             </a>
         </div>
-        <div class="action trafic">
-            <a href="/pari/trafic">
-            <img src="/img/btn_parier_trafic.png" width="617px" height="230px"></img>
-
-            </a>
+         <div style="height:50px">
         </div>
+        <div class="clear"></div>
     </div>
 {% endblock %}
