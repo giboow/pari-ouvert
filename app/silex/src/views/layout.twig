@@ -29,7 +29,7 @@
 
 
             <header data-role="header" data-role="button" data-inline="true"	>
-                <div class="notif">12</div>
+                {% if(app.user) %}<div class="notif">12</div>{% endif %}
                 <a id="btPannel" href="#mypanel">
                 Menu
                 </a>

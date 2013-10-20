@@ -13,6 +13,18 @@ $darkBlue: #334d5c;
     clear: both;
 }
 
+.ui-header, .ui-footer {
+    position: fixed;
+    width: 100%;
+}
+
+.ui-body-c, .ui-overlay-c {
+    background: $grey;
+}
+body {
+    background-color: $grey;
+}
+
 header {
     padding: 10px 0 0 10px;
     &.ui-bar-a {
@@ -44,6 +56,10 @@ header {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+
+
     &.ui-bar-a {
         padding: 10px;
         background: white;
@@ -57,14 +73,15 @@ footer {
         text-shadow : none;
     }
     .etats {
-        width: 400px;
+        font-size: 0.8em;
+        width: 360px;
         margin: 0 auto;
         text-shadow : none;
         .points{
             padding: 10px 20px;
             background-color : $darkBlue;
             float: left;
-            width: 120px;
+            width: 100px;
             text-align: center;
         }
         .divider {
@@ -76,7 +93,7 @@ footer {
         }
         .pariDispo{
             padding: 10px 20px;
-            width: 120px;
+            width: 100px;
             background-color : $green;
             float: left;
             text-align: center;
