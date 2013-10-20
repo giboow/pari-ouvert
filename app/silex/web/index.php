@@ -36,6 +36,12 @@ $app->get('/defi', function() use ($app) {
     );
 });
 
+$app->get('/notifications', function() use ($app) {
+    return $app['twig']->render(
+            "notifications.twig", array()
+    );
+});
+
 // page de pari
 $app->get('/pari/parking', function() use ($app) {
     $list = pariform();

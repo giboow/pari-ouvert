@@ -134,6 +134,9 @@ footer {
     margin: 0;
 
     #index {
+        &.large {
+            width: 658px;
+        }
         margin-left: -20px;
         margin-top: -20px;
         width: 584px;
