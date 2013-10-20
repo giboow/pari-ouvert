@@ -1,17 +1,9 @@
 <?php
 $app->register(
-        new Silex\Provider\DoctrineServiceProvider(),
-        array(
-                'db.options' => array(
-                        'driver'    => 'pdo_mysql',
-                        'host'      => '192.168.1.47',
-                        'port'		=> '5700',
-                        'dbname'    => 'pariouvert',
-                        'user'      => 'pariouvert',
-                        'password'  => 'pariouvert',
-                        'charset'   => 'utf8',
-                ),
-        )
+    new Silex\Provider\DoctrineServiceProvider(),
+       array(
+        'db.options' => $app['config']['db']
+    )
 );
 
 
