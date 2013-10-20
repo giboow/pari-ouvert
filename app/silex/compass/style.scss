@@ -2,6 +2,16 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/font-face";
 
+@font-face {
+    font-family: 'Conv_LubalinGraphStd-Medium';
+    src: url('fonts/LubalinGraphStd-Medium.eot');
+    src: url('fonts/LubalinGraphStd-Medium.woff') format('woff'), url('fonts/LubalinGraphStd-Medium.ttf') format('truetype'), url('fonts/LubalinGraphStd-Medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 $white : #FFFFFF;
 $black : #000000;
 $grey : #D6DBDE;
@@ -17,12 +27,14 @@ $darkBlue: #334d5c;
 html,body {
     background-color: $grey;
     margin : 0;
+    padding: 0;
+    font-family: 'Conv_LubalinGraphStd-Medium';
 }
 
 
 header {
     background : $white;
-    padding: 10px 0;
+    //padding: 10px 0;
     position: fixed;
     width: 100%;
     &.ui-bar-a {
@@ -35,12 +47,13 @@ header {
         border: solid 1px;
         background-color: $red;
         color: $white;
+        font-size: 2em;
         padding: 5px 20px;
-        margin: 0 20px;
+        margin: 20px;
     }
     .logo{
-        width: 312px;
-        height: 57px;
+        width: 451px;
+        height: 101px;
         margin: 0 auto;
         background: url("../img/logo_header.jpg") no-repeat;
     }
@@ -52,7 +65,7 @@ header {
             border: none;
         }
     }*/
-    height: 60px;
+    height: 101px;
     a{
         float: left;
     }
@@ -78,17 +91,17 @@ footer {
         text-shadow : none;
     }
     .etats {
+        font-size: 1.7em;
         padding: 10px 0;
         color: $white;
-        font-size: 0.7em;
-        width: 275px;
+        width: 550px;
         margin: 0 auto;
         text-shadow : none;
         .points{
             padding: 10px 20px;
             background-color : $darkBlue;
             float: left;
-            width: 85px;
+            width: 220px;
             text-align: center;
         }
         .divider {
@@ -100,7 +113,7 @@ footer {
         }
         .pariDispo{
             padding: 10px 20px;
-            width: 85px;
+            width: 220px;
             background-color : $green;
             float: left;
             text-align: center;
@@ -111,7 +124,7 @@ footer {
 
 #content {
     background-color: $grey;
-    padding-top: 90px;
+    padding-top: 110px;
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
