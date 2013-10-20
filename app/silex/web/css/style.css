@@ -121,11 +121,3 @@ footer .etats .pariDispo {
   padding: 90px 0;
   width: 100%;
 }
-
-@media only screen and (max-device-width: 720px) and (orientation: portrait) {
-  /* line 130, ../../compass/style.scss */
-  #site {
-    width: 720px;
-    margin: 0 auto;
-  }
-}
