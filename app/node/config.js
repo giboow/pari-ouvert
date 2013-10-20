@@ -3,8 +3,8 @@ exports.connect = function() {
         var mysql      = require('mysql');
         var connection = mysql.createConnection({
             host     : 'localhost',
-            user     : 'root',
-            password : 'azerty1',
+            user     : 'pariouvert',
+            password : '#pari0uvert#',
             database : 'pariouvert',
         });
 
