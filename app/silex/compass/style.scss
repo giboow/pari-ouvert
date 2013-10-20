@@ -1,13 +1,99 @@
 @import "compass";
 @import "compass/css3/border-radius";
+@import "compass/css3/font-face";
 
+$white : #FFFFFF;
+$grey : #D6DBDE;
+$green : #4BB5A3;
+$red: #df5a49;
+$darkBlue: #334d5c;
+
+.clear{
+    clear: both;
+}
+
+header {
+    padding: 10px 0 0 10px;
+    &.ui-bar-a {
+        background: $white;
+        color: black;
+        text-shadow : none;
+    }
+    .notif{
+        float: right;
+        border: solid 1px;
+        background-color: $red;
+        color: $white;
+        padding: 5px 20px;
+        margin: 0 10px;
+    }
+    .logo{
+        width: 100px;
+        margin: 0 auto;
+    }
+    /*#btPannel{
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        .ui-btn-inner{
+            border: none;
+        }
+    }*/
+    height: 40px;
+}
 
 footer {
+    &.ui-bar-a {
+        padding: 10px;
+        background: white;
+    }
+    text-shadow : none;
+    border: none;
     #copy{
         width: 100%;
         text-align: center;
     }
+    .etats {
+        width: 400px;
+        margin: 0 auto;
+        text-shadow : none;
+        .points{
+            padding: 10px 20px;
+            background-color : $darkBlue;
+            float: left;
+            width: 120px;
+            text-align: center;
+        }
+        .divider {
+            border-left: 1px solid #808080;
+            float: left;
+            height: 35px;
+            margin: 0 20px;
+            width: 1px;
+        }
+        .pariDispo{
+            padding: 10px 20px;
+            width: 120px;
+            background-color : $green;
+            float: left;
+            text-align: center;
+        }
+    }
 }
+
+.leftBorder{
+    width: 100px;
+    height: 100%;
+    float: right;
+    backgroun-color: grey;
+
+}
+
+#content {
+    background-color: $grey;
+    min-height:500px;
+}
+
 
 
 @media only screen
@@ -18,5 +104,6 @@ and (orientation : portrait) {
         width: 720px;
         margin : 0 auto;
     }
+
 }
 
