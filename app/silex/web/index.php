@@ -142,7 +142,6 @@ $app->match('/pari/troncon', function (Request $request) use ($app) {
 
 // page point
 $app->get('/score', function() use ($app) {
-    var_dump($app['user.manager']->getCurrentUser());
     return ($app['twig']->render("score.twig", scorePage($app)));
   });
 $app->get('/score/{type}', function($type) use ($app) {
