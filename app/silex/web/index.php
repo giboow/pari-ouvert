@@ -6,6 +6,13 @@ $loader->add("PariOuvert", "../src/lib/");
 $app = new Silex\Application();
 $app["config"] = require 'configApp.php';
 
+if(file_exists("configAppDev.php")) {
+    $configDev = require "configAppDev.php";
+    if (is_array($configDev))
+        $app['config'] = array_merge_recursive($configDev, $app['config']);
+}
+
+
 include 'config.php';
 
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +29,7 @@ $app->get('/', function() use ($app) {
 $app->get('/pari/{type}', function($type) use ($app) {
     $list = pariform();
     return $app['twig']->render(
-				"formpari.twig", array("list" => $list, "user" => $app['user'])
+                "formpari.twig", array("list" => $list, "user" => $app['user'])
     );
 });
 
@@ -56,13 +63,13 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
 
     //everything seems OK, just commit to the db
     $app['db']->insert('pari_parking', array(
-					     'user_id' => $userId,
-					     'parking_id' => $parkingid,
-					     'nb_place_pari' => $nbplaces,
+                         'user_id' => $userId,
+                         'parking_id' => $parkingid,
+                         'nb_place_pari' => $nbplaces,
                          'mise' => $mise,
-					     'date_pari' => $datepari,
-					     'date_create' => $current_date,
-					     ));
+                         'date_pari' => $datepari,
+                         'date_create' => $current_date,
+                         ));
     return new Response("Le pari a été enregistré !", 201);
   });
 
