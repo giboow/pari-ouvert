@@ -125,23 +125,24 @@ footer .etats .pariDispo {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0;
+  height: 100%;
 }
-/* line 133, ../../compass/style.scss */
+/* line 134, ../../compass/style.scss */
 #content #index {
   margin-left: -20px;
   width: 584px;
   background-color: white;
 }
-/* line 137, ../../compass/style.scss */
+/* line 138, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
-/* line 142, ../../compass/style.scss */
+/* line 143, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 145, ../../compass/style.scss */
+/* line 146, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;
