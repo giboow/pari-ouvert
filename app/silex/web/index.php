@@ -24,6 +24,12 @@ $app->get('/', function() use ($app) {
     );
 });
 
+$app->get('/pari', function() use ($app){
+    return $app['twig']->render(
+            "pari.twig", array()
+    );
+});
+
 // page de pari
 $app->get('/pari/parking', function() use ($app) {
     $list = pariform();
@@ -50,7 +56,7 @@ $app->match('/pari/parking', function (Request $request) use ($app) {
 
     $datecreate = new DateTime();
     $datepari = DateTime::createFromFormat('d/m/Y H:i', $request->get('datepari'));
-    
+
 
     $nbplaces = $request->get('nbplaces');
     $err_range = $app['validator']->validateValue($nbplaces, new Assert\Range(array('min' =>  0)));
@@ -70,8 +76,8 @@ $app->match('/pari/parking', function (Request $request) use ($app) {
             "formpari.twig", array("list" => $list, "user" => $app['user']));
     }
 
-    
-    
+
+
     //everything seems OK, just commit to the db
     $app['db']->insert('pari_parking', array(
                          'user_id' => $userId,

@@ -21,6 +21,7 @@ html, body {
 
 /* line 35, ../../compass/style.scss */
 header {
+  overflow: hidden;
   background: white;
   position: fixed;
   width: 100%;
@@ -34,13 +35,13 @@ header {
   }*/
   height: 101px;
 }
-/* line 40, ../../compass/style.scss */
+/* line 41, ../../compass/style.scss */
 header.ui-bar-a {
   background: white;
   color: black;
   text-shadow: none;
 }
-/* line 45, ../../compass/style.scss */
+/* line 46, ../../compass/style.scss */
 header .notif {
   float: right;
   border: solid 1px;
@@ -50,12 +51,11 @@ header .notif {
   padding: 5px 20px;
   margin: 20px;
 }
-/* line 54, ../../compass/style.scss */
+/* line 55, ../../compass/style.scss */
 header .logo {
   width: 451px;
   height: 101px;
   margin: 0 auto;
-  background: url("../img/logo_header.jpg") no-repeat;
 }
 /* line 69, ../../compass/style.scss */
 header a {
@@ -123,29 +123,49 @@ footer .etats .pariDispo {
 #content {
   font-size: 2em;
   background-color: #d6dbde;
-  padding-top: 80px;
+  padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0;
-  min-height: 1024px;
 }
-/* line 136, ../../compass/style.scss */
+/* line 135, ../../compass/style.scss */
 #content #index {
   margin-left: -20px;
+  margin-top: -20px;
   width: 584px;
+  height: 100%;
   background-color: white;
-  min-height: 1024px;
+  padding-top: 20px;
 }
-/* line 140, ../../compass/style.scss */
+/* line 142, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
-/* line 146, ../../compass/style.scss */
+/* line 145, ../../compass/style.scss */
+#content #index #pariDefi {
+  margin: 0 auto;
+  width: 300px;
+}
+/* line 148, ../../compass/style.scss */
+#content #index #pariDefi .pari {
+  background-color: #df5a49;
+  float: left;
+  padding: 10px;
+  margin: 0 10px;
+  color: white;
+}
+/* line 155, ../../compass/style.scss */
+#content #index #pariDefi .defi {
+  float: left;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+/* line 163, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 149, ../../compass/style.scss */
+/* line 166, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;
