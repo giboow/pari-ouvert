@@ -1,0 +1,94 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<h1>Mes derniers paris effectués</h1>
+
+
+{% if not(not bicloo and not traffic and not parking) %}
+
+   {% if bicloo %}
+      <table>
+	<tr>
+	  <th>Statut</th>
+	  <th>Nom de la station</th>
+	  <th>Valeur pariée</th>
+	  <th>Valeur relevée</th>
+	  <th>Date</th>
+	</tr>
+      {% for bicloo in bicloo %} 
+      	 <tr>
+	   {% if bicloo.gain != 0 %}
+	   <td>Gagné</td>
+	   {% else %}
+	   <td>Perdu</td>
+	   {% endif %}
+	   <td>{{ bicloo.name }}</td>
+	   <td>{{ bicloo.nb_place_pari }}</td>
+	   <td>{{ bicloo.nb_place_reel }}</td>
+	   <td>{{ bicloo.date_pari | date('h:m d/m/Y') }}</td>
+	 </tr>
+      {% endfor %}
+      </table>
+   {% endif %}
+
+
+   {% if parking %}
+      <table>
+	<tr>
+	  <th>Statut</th>
+	  <th>Nom du parking</th>
+	  <th>Valeur pariée</th>
+	  <th>Valeur relevée</th>
+	  <th>Date</th>
+	</tr>
+      {% for parking in parking %} 
+      	 <tr>
+	   {% if parking.gain != 0 %}
+	   <td>Gagné</td>
+	   {% else %}
+	   <td>Perdu</td>
+	   {% endif %}
+	   <td>{{ parking.name }}</td>
+	   <td>{{ parking.nb_place_pari }}</td>
+	   <td>{{ parking.nb_place_reel }}</td>
+	   <td>{{ parking.date_pari | date('h:m d/m/Y') }}</td>
+	 </tr>
+      {% endfor %}
+      </table>
+   {% endif %}
+
+
+   {% if traffic %}
+      <table>
+	<tr>
+	  <th>Statut</th>
+	  <th>Troncon</th>
+	  <th>Valeur pariée</th>
+	  <th>Valeur relevée</th>
+	  <th>Date</th>
+	</tr>
+      {% for traffic in traffic %} 
+      	 <tr>
+	   {% if traffic.gain != 0 %}
+	   <td>Gagné</td>
+	   {% else %}
+	   <td>Perdu</td>
+	   {% endif %}
+	   <td>{{ traffic.adress_start }} -> {{ traffic.adress_stop }}</td>
+	   <td>{{ traffic.tps_trajet_pari }}</td>
+	   <td>{{ traffic.tps_trajet_reel }}</td>
+	   <td>{{ traffic.date_pari | date('h:m d/m/Y') }}</td>
+	 </tr>
+      {% endfor %}
+      </table>
+   {% endif %}
+
+
+
+
+
+{% else %}
+<p>Aucun pari n'est terminé!</p>
+{% endif %}
+
+{% endblock %}
