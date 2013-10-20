@@ -8,8 +8,7 @@
 
         {% block style %}
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <!-- <meta name="viewport" content="content-width=480px">  -->
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/custom.css" />
@@ -18,33 +17,48 @@
         {% block script %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <script src="//code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <!-- <script src="//code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> -->
         <script type="text/javascript">
 
         </script>
         {% endblock %}
     </head>
     <body>
-        <div data-role="page">
+        <div id="site">
 
 
-            <div data-role="header">
-                <a href="#mypanel">Open panel</a>
-                <h1>PariOuvert.fr</h1>
-            </div><!-- /header -->
+            <header>
+                {% if(app.user) %}<div class="notif">12</div>{% endif %}
+                <a id="btPannel" href="#mypanel">
+                Menu
+                </a>
+                <div class="logo"></div>
+                <div class="clear"></div>
+            </header><!-- /header -->
 
-            <div data-role="content">
+            <div id="content">
                 {% block content %}
                 {% endblock content %}
             </div><!-- /content -->
             <!-- footer -->
-            <footer data-role="footer">
+            <footer>
+                {% block footer %}
+                {% if(app.user) %}
+                <div class="etats">
+                    <div class="points">12 300 pô</div>
+                    <div class="divider"></div>
+                    <div class="pariDispo">Pari disponible</div>
+                    <div class="clear"></div>
+                </div>
+                {% else %}
                 <div id="copy">
                     pariouvert.fr &copy; {{ "now"|date("Y") }}
                 </div>
+                {% endif %}
+                {% endblock %}
             </footer>
 
-            <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+            <!-- <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
                 <ul class="nav" data-role="listview">
                     <li><a href="/">Home</a></li>
                     {% if app.user %}

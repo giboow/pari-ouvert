@@ -1,5 +1,25 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-    {{ msg }}
+    {% if app.user %}
+    Bonjour, <span class="user">{{ app.user.getName }}</span>
+    {% endif %}
+
+    <div id="index">
+        <div class="action parier">
+            <a href="">
+                BT 1
+            </a>
+        </div>
+        <div class="action boutique">
+            <a href="">
+                BT 2
+            </a>
+        </div>
+        <div class="action highscore">
+            <a href="">
+            BT 3
+            </a>
+        </div>
+    </div>
 {% endblock %}

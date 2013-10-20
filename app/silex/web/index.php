@@ -85,6 +85,19 @@ $app->get('/score/{type}', function($type) use ($app) {
     return ($app['twig']->render("score.twig", scorePageType($app, $type)));
 });
 
+$app->get('/bet', function() use ($app) {
+    $sql = "SELECT * FROM pari_bicloo JOIN bicloo ON bicloo.id = pari_bicloo.bicloo_id  WHERE date_pari IS NOT NULL AND user_id = ".$app['user.manager']->getCurrentUser()->getId()." ORDER BY date_pari";
+    $bicloo = $app['db']->fetchAll($sql);
+
+    $sql = "SELECT * FROM pari_parking JOIN parking ON parking.id = pari_parking.parking_id  WHERE date_pari IS NOT NULL AND user_id = ".$app['user.manager']->getCurrentUser()->getId()." ORDER BY date_pari";
+    $parking = $app['db']->fetchAll($sql);
+
+
+    $sql = "SELECT * FROM pari_traffic JOIN troncon ON troncon.id = pari_traffic.troncon_id  WHERE date_pari IS NOT NULL AND user_id = ".$app['user.manager']->getCurrentUser()->getId()." ORDER BY date_pari";
+    $traffic = $app['db']->fetchAll($sql);
+    return ($app['twig']->render("lastBet.twig", array("bicloo" => $bicloo, "parking" => $parking, "traffic" => $traffic)));
+});
+
 
 $app->run();
 

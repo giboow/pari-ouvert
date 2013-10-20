@@ -1,22 +1,119 @@
 @import "compass";
 @import "compass/css3/border-radius";
+@import "compass/css3/font-face";
 
+$white : #FFFFFF;
+$black : #000000;
+$grey : #D6DBDE;
+$green : #4BB5A3;
+$red: #df5a49;
+$darkBlue: #334d5c;
+
+.clear{
+    clear: both;
+}
+
+
+html,body {
+    background-color: $grey;
+    margin : 0;
+}
+
+
+header {
+    background : $white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    &.ui-bar-a {
+        background: $white;
+        color: black;
+        text-shadow : none;
+    }
+    .notif{
+        float: right;
+        border: solid 1px;
+        background-color: $red;
+        color: $white;
+        padding: 5px 20px;
+        margin: 0 20px;
+    }
+    .logo{
+        width: 312px;
+        height: 57px;
+        margin: 0 auto;
+        background: url("../img/logo_header.jpg") no-repeat;
+    }
+    /*#btPannel{
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        .ui-btn-inner{
+            border: none;
+        }
+    }*/
+    height: 60px;
+    a{
+        float: left;
+    }
+}
 
 footer {
+    width: 100%;
+    background : $white;
+    position: fixed;
+    bottom: 0;
+
+
+    &.ui-bar-a {
+        padding: 10px 0;
+        background: white;
+    }
+    text-shadow : none;
+    border: none;
     #copy{
         width: 100%;
         text-align: center;
+        color: $black;
+        text-shadow : none;
+    }
+    .etats {
+        padding: 10px 0;
+        color: $white;
+        font-size: 0.7em;
+        width: 275px;
+        margin: 0 auto;
+        text-shadow : none;
+        .points{
+            padding: 10px 20px;
+            background-color : $darkBlue;
+            float: left;
+            width: 85px;
+            text-align: center;
+        }
+        .divider {
+            border-left: 1px solid #808080;
+            float: left;
+            height: 35px;
+            margin: 0 10px;
+            width: 1px;
+        }
+        .pariDispo{
+            padding: 10px 20px;
+            width: 85px;
+            background-color : $green;
+            float: left;
+            text-align: center;
+        }
     }
 }
 
 
-@media only screen
-and (min-device-width : 728px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-    #site {
-        width: 720px;
-        margin : 0 auto;
-    }
+#content {
+    background-color: $grey;
+    padding-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
 }
 
