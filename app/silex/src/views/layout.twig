@@ -21,9 +21,10 @@
         {% block script %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <!-- <script src="//code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> -->
         <script type="text/javascript">
-
+            $(document).ready(function(){
+                $("#index").css({height: $(document).height(), "margin-bottom":-20});
+            });
         </script>
         {% endblock %}
     </head>
@@ -32,13 +33,13 @@
 
 
             <header>
-                {% if(app.user) %}<div class="notif">12</div>{% endif %}
-                <a id="btPannel" href="#mypanel">
-                    <img src="../img/btn_sidemenu.jpg"/>
+                {% if(app.user) %}<a class="notif" title="notifications" href="/notifications">12</a>{% endif %}
+                <a id="btPannel" href="/" title="menu">
+                    <img src="/img/btn_sidemenu.jpg"/>
                 </a>
                 <div class="logo">
                     <a href="/">
-                        <img src="../img/logo_header.jpg" width="451px" heigt="101px"/>
+                        <img src="/img/logo_header.jpg" width="451px" heigt="101px"/>
                     </a>
                 </div>
                 <div class="clear"></div>

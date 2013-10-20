@@ -1,20 +1,30 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-   <form method="post">
-   Parking :
-   <select name="troncon_id">
+   <div id="index">
+ <div class="action parking">
+                <img src="/img/titre_pari_trafic.png" width="614px" height="114px"></img>
+        </div>
+
+
+
+   <form method="post" style="width:500px; margin:0px auto;">
+   Je parie que le trajet de...
+   <select name="troncon_id" style="color:#4BB5A3; font-weight:bold; border:2px sold #ccc; width:500px; background-color:white;font-size: 18px;">
    {% for item in list %}
-      <option value="{{ item.id }}"> {{ item.adress_start }} - {{ item.adress_stop }} </option>
+      <option value="{{ item.id }}" style="color:#4BB5A3;border:2px solid #ccc;font-size: 18px;background-color:white;"> {{ item.adress_start }} - {{ item.adress_stop }} </option>
    {% endfor %}
    </select> <br/>
-   Temps de trajet :
-   <input type="text" name="tps_trajet_pari" value="0" required=""/>  <br/>
-   Date du pari :
-   <input type="text" name="datepari" value="20/12/2013 12:55" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4} (0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" required="" />  <br/>
-   Mise :
-   <input type="text" name="mise" value="10" required="" /> <br/>
+   le...<br/>
+   <input type="text" name="datepari" value="20/12/2013 12:55" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4} (0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" required="" style="width:500px;color:#4BB5A3;font-weight:bold;border:2px solid #ccc;font-size: 18px;"/>  <br/>
+   prendra en voiture...<br/>
+   <input type="text" name="tps_trajet_pari" value="0" required="" style="width:500px;color:#4BB5A3;font-size: 18px;font-weight:bold;border:2px solid #ccc;"/>  <br/>
+   et je mise...<br/>
+   <input type="text" name="mise" value="10" required="" style="width:500px;color:#4BB5A3;font-weight:bold;font-size: 18px;border:2px solid #ccc;" /> <br/>
    <input type="hidden" name="userid" value="{{ user.id }}" />
-   <input type="submit" value="Valider" />
+   <input type="submit" value="Miser" style="background-color:#DF5A49;font-size:20px;color:white;border:none;width:80px;height:30px;" />
    </form>
+
+
+</div>
 {% endblock %}

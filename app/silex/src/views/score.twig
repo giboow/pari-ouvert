@@ -2,25 +2,25 @@
 
 {% block content %}
 <div id="index">
- <div class="action parking">
-                <img src="img/titre_classement.png" width="617px" height="114px"></img>
-        </div>
-{% if type is defined %}
-ayant parié sur le {{ type }}
-{% endif %}
-  
-<div style="float:left;">
-   {% for i in range(0, users| length - 1) %}
- {{ i + 1 }}. <span style="color:#4BB5A3;">{{ attribute(users, i).name }}</span> 
+    <div class="action parking">
+        <img src="img/titre_classement.png" width="617px" height="114px" />
+    </div>
+    {% if type is defined %}
+    ayant parié sur le {{ type }}
+    {% endif %}
+
+    <ol>
+    {% for user in users %}
+        <li style="margin:20px 0;">
+            <div style="float: left;color:#4BB5A3;">
+                {{ user.name }}
+            </div>
+            <div style="float: right;color:#DF5A49; margin-right:30px;">
+                {{ user.gain }} pô
+            </div>
+            <div class="clear"></div>
+        </li>
     {% endfor %}
-</div>
-<div style="float:right;">
-   {% for user in users %}<span style="color:#DF5A49">{{ user.gain }} pô </span>
-    {% endfor %}
-</div>
-
-
-<div id="clear"/>
-
+    </ol>
 </div>
 {% endblock %}

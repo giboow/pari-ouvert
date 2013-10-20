@@ -30,6 +30,18 @@ $app->get('/pari', function() use ($app){
     );
 });
 
+$app->get('/defi', function() use ($app) {
+    return $app['twig']->render(
+            "defi.twig", array()
+    );
+});
+
+$app->get('/notifications', function() use ($app) {
+    return $app['twig']->render(
+            "notifications.twig", array()
+    );
+});
+
 // page de pari
 $app->get('/pari/parking', function() use ($app) {
     $list = pariform();
@@ -102,7 +114,7 @@ $app->match('/pari/troncon', function (Request $request) use ($app) {
 
     $datecreate = new DateTime();
     $datepari = DateTime::createFromFormat('d/m/Y H:i', $request->get('datepari'));
-    
+
 
     $tps_trajet_pari = $request->get('tps_trajet_pari');
     $err_range = $app['validator']->validateValue($tps_trajet_pari, new Assert\Range(array('min' =>  0)));
@@ -122,7 +134,7 @@ $app->match('/pari/troncon', function (Request $request) use ($app) {
             "tronconform.twig", array("list" => $list, "user" => $app['user']));
     }
 
-    
+
     //everything seems OK, just commit to the db
     $app['db']->insert('pari_traffic', array(
                          'user_id' => $userId,
