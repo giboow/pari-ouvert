@@ -53,22 +53,18 @@
             {% endif %}
             </div><!-- /content -->
             <!-- footer -->
+            {% if(app.user) %}
             <footer>
                 {% block footer %}
-                {% if(app.user) %}
                 <div class="etats">
                     <div class="points">12 300 pô</div>
                     <div class="divider"></div>
                     <div class="pariDispo">Pari disponible</div>
                     <div class="clear"></div>
                 </div>
-                {% else %}
-                <div id="copy">
-                    pariouvert.fr &copy; {{ "now"|date("Y") }}
-                </div>
-                {% endif %}
                 {% endblock %}
             </footer>
+            {% endif %}
 
             <!-- <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
                 <ul class="nav" data-role="listview">
