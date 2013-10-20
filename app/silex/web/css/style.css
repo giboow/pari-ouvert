@@ -21,7 +21,7 @@ body {
   background-color: #d6dbde;
 }
 
-/* line 30, ../../compass/style.scss */
+/* line 31, ../../compass/style.scss */
 header {
   padding: 10px 0 0 10px;
   /*#btPannel{
@@ -34,13 +34,13 @@ header {
   }*/
   height: 60px;
 }
-/* line 32, ../../compass/style.scss */
+/* line 33, ../../compass/style.scss */
 header.ui-bar-a {
   background: white;
   color: black;
   text-shadow: none;
 }
-/* line 37, ../../compass/style.scss */
+/* line 38, ../../compass/style.scss */
 header .notif {
   float: right;
   border: solid 1px;
@@ -49,7 +49,7 @@ header .notif {
   padding: 5px 20px;
   margin: 0 20px;
 }
-/* line 45, ../../compass/style.scss */
+/* line 46, ../../compass/style.scss */
 header .logo {
   width: 312px;
   height: 57px;
@@ -57,33 +57,33 @@ header .logo {
   background: url("../img/logo_header.jpg") no-repeat;
 }
 
-/* line 62, ../../compass/style.scss */
+/* line 63, ../../compass/style.scss */
 footer {
   position: fixed;
   bottom: 0;
   text-shadow: none;
   border: none;
 }
-/* line 67, ../../compass/style.scss */
+/* line 68, ../../compass/style.scss */
 footer.ui-bar-a {
   padding: 10px;
   background: white;
 }
-/* line 73, ../../compass/style.scss */
+/* line 74, ../../compass/style.scss */
 footer #copy {
   width: 100%;
   text-align: center;
   color: black;
   text-shadow: none;
 }
-/* line 79, ../../compass/style.scss */
+/* line 80, ../../compass/style.scss */
 footer .etats {
   font-size: 0.7em;
   width: 275px;
   margin: 0 auto;
   text-shadow: none;
 }
-/* line 84, ../../compass/style.scss */
+/* line 85, ../../compass/style.scss */
 footer .etats .points {
   padding: 10px 20px;
   background-color: #334d5c;
@@ -91,7 +91,7 @@ footer .etats .points {
   width: 85px;
   text-align: center;
 }
-/* line 91, ../../compass/style.scss */
+/* line 92, ../../compass/style.scss */
 footer .etats .divider {
   border-left: 1px solid #808080;
   float: left;
@@ -99,7 +99,7 @@ footer .etats .divider {
   margin: 0 10px;
   width: 1px;
 }
-/* line 98, ../../compass/style.scss */
+/* line 99, ../../compass/style.scss */
 footer .etats .pariDispo {
   padding: 10px 20px;
   width: 85px;
@@ -108,7 +108,7 @@ footer .etats .pariDispo {
   text-align: center;
 }
 
-/* line 108, ../../compass/style.scss */
+/* line 109, ../../compass/style.scss */
 .leftBorder {
   width: 100px;
   height: 100%;
@@ -116,7 +116,7 @@ footer .etats .pariDispo {
   backgroun-color: grey;
 }
 
-/* line 116, ../../compass/style.scss */
+/* line 117, ../../compass/style.scss */
 #content {
   background-color: #d6dbde;
   min-height: 400px;
@@ -124,7 +124,7 @@ footer .etats .pariDispo {
 }
 
 @media only screen and (min-device-width: 728px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 128, ../../compass/style.scss */
+  /* line 129, ../../compass/style.scss */
   #site {
     width: 720px;
     margin: 0 auto;
