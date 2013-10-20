@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 20, 2013 at 10:09 AM
+-- Generation Time: Oct 20, 2013 at 10:47 AM
 -- Server version: 5.5.31
 -- PHP Version: 5.4.4-14+deb7u5
 
@@ -261,7 +261,67 @@ CREATE TABLE IF NOT EXISTS `troncon` (
   `adress_start` varchar(255) NOT NULL,
   `adress_stop` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=423 ;
+
+--
+-- Dumping data for table `troncon`
+--
+
+INSERT INTO `troncon` (`id`, `nom`, `adress_start`, `adress_stop`) VALUES
+(11, '', 'Prairie de Mauves', 'PCE NEPTUNE'),
+(12, '', 'Prairie de Mauves', 'SAUPIN'),
+(21, '', 'Cote St Sébastien', 'NANTES CENTRE VIA PIRMIL'),
+(22, '', 'Cote St Sébastien', 'NANTES CENTRE VIA CLEMENCEAU'),
+(31, '', 'St Jean (Rezé)', 'NANTES CENTRE VIA CLEMENCEAU'),
+(32, '', 'St Jean (Rezé)', 'NANTES CENTRE VIA PIRMIL'),
+(41, '', 'Rue Jean Jaurès (Rezé)', 'NANTES CENTRE VIA PIRMIL'),
+(42, '', 'Rue Jean Jaurès (Rezé)', 'NANTES CENTRE VIA 3 CONTINENTS'),
+(51, '', 'Pce Renaissance (Rezé)', 'NANTES CENTRE VIA PIRMIL'),
+(52, '', 'Pce Renaissance (Rezé)', 'NANTES CENTRE VIA 3 CONTINENTS'),
+(61, '', 'Bd De Gaulle (Rezé)', 'NANTES CENTRE VIA PIRMIL'),
+(62, '', 'Bd De Gaulle (Rezé)', 'Bd De Gaulle (Rezé)'),
+(71, '', 'Rte de Pornic', 'NANTES CENTRE VIA PIRMIL'),
+(72, '', 'Rte de Pornic', 'NANTES CENTRE VIA 3 CONTINENTS'),
+(81, '', 'Pont Clémenceau', 'PCE NEPTUNE'),
+(82, '', 'Pont Clémenceau', 'PCE RICORDEAU'),
+(91, '', 'Bd Allende', 'PCE HOLLANDE'),
+(92, '', 'Bd Allende', 'PCE REPUBLIQUE'),
+(111, '', 'Bd Jules Verne', 'PCE FOCH'),
+(112, '', 'Bd Jules Verne', 'PCE PONT MORAND'),
+(121, '', 'Rte Ste Luce', 'PCE NEPTUNE'),
+(122, '', 'Rte Ste Luce', 'PCE FOCH'),
+(141, '', 'Avenue Carnot', 'PTE SORINIERES VIA BEAULIEU'),
+(142, '', 'Avenue Carnot', 'PTE SORINIERES VIA MALAKOFF'),
+(161, '', 'Bd Guy Mollet', 'PCE PONT MORAND'),
+(162, '', 'Bd Guy Mollet', 'PCE BRETAGNE'),
+(171, '', 'Bd Schuman', 'PCE PONT MORAND'),
+(172, '', 'Bd Schuman', 'PCE BRETAGNE'),
+(181, '', 'Rue Bellamy', 'PTE RENNES'),
+(182, '', 'Rue Bellamy', 'PTE LA CHAPELLE'),
+(191, '', 'Rte de Vannes', 'PCE BRETAGNE'),
+(192, '', 'Rte de Vannes', 'PCE DELORME'),
+(201, '', 'Rue Paul Chabas', 'PCE DELORME'),
+(202, '', 'Rue Paul Chabas', 'PCE BRETAGNE'),
+(211, '', 'Bd Léon Jouhaux', 'PCE HOLLANDE'),
+(212, '', 'Bd Léon Jouhaux', 'PCE REPUBLIQUE'),
+(221, '', 'Quai Ernest Renaud', 'PCE HOLLANDE'),
+(222, '', 'Quai Ernest Renaud', 'PCE REPUBLIQUE'),
+(261, '', 'Bd Victor Hugo', 'PTE BOUGUENAIS'),
+(271, '', 'Pont des Bourdonnières', 'NANTES CENTRE VIA CLEMENCEAU'),
+(272, '', 'Pont des Bourdonnières', 'NANTES CENTRE VIA PIRMIL'),
+(311, '', 'Bd Chevreul', 'PCE HOLLANDE'),
+(312, '', 'Bd Chevreul', 'PCE REPUBLIQUE'),
+(331, '', 'Rte de St Joseph', 'PCEPONT MORAND'),
+(332, '', 'Rte de St Joseph', 'PCE FOCH'),
+(361, '', 'Rue Général Buat', 'PTE CARQUEFOU'),
+(362, '', 'Rue Général Buat', 'PTE BEAUJOIRE'),
+(371, '', 'Rue du Coudray', 'PTE BEAUJOIRE'),
+(372, '', 'Rue du Coudray', 'PTE CARQUEFOU'),
+(381, '', 'Bd Amiral Courbet', 'PTE LA CHAPELLE'),
+(411, '', 'Pont des 3 Continents', 'PCE RICORDEAU'),
+(412, '', 'Pont des 3 Continents', 'PCE HOLLANDE'),
+(421, '', 'Pont de Pirmil', 'PCE RICORDEAU'),
+(422, '', 'Pont de Pirmil', 'PCE HOLLANDE');
 
 -- --------------------------------------------------------
 
