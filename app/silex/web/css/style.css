@@ -118,6 +118,5 @@ footer .etats .pariDispo {
 #content {
   background-color: #d6dbde;
   min-height: 400px;
-  padding: 90px 0;
-  width: 100%;
+  padding: 90px 20px;
 }
