@@ -32,6 +32,16 @@ $app->get('/pari/parking', function() use ($app) {
     );
 });
 
+
+// page de pari
+$app->get('/pari/troncon', function() use ($app) {
+    $list = tronconlist();
+    return $app['twig']->render(
+                "tronconform.twig", array("list" => $list, "user" => $app['user'])
+    );
+});
+
+
 $app->match('/pari/parking', function (Request $request) use ($app) {
 
     // some default data for when the form is displayed the first time
@@ -75,6 +85,48 @@ $app->match('/pari/parking', function (Request $request) use ($app) {
 })
     ->method('POST') ;
 
+$app->match('/pari/troncon', function (Request $request) use ($app) {
+
+    // some default data for when the form is displayed the first time
+    $userId = $request->get('userid');
+    $troncon_id = $request->get('troncon_id');
+
+    $datecreate = new DateTime();
+    $datepari = DateTime::createFromFormat('d/m/Y H:i', $request->get('datepari'));
+    
+
+    $tps_trajet_pari = $request->get('tps_trajet_pari');
+    $err_range = $app['validator']->validateValue($tps_trajet_pari, new Assert\Range(array('min' =>  0)));
+
+    if (count($err_range) != 0 || !ctype_digit($tps_trajet_pari)){
+        $list = tronconlist();
+        return $app['twig']->render(
+            "tronconform.twig", array("list" => $list, "user" => $app['user']));
+    }
+
+    $mise = $request->get('mise');
+    $err_range = $app['validator']->validateValue($mise, new Assert\Range(array('min' =>  1)));
+
+    if (count($err_range) != 0 || !ctype_digit($mise)){
+        $list = tronconlist();
+        return $app['twig']->render(
+            "tronconform.twig", array("list" => $list, "user" => $app['user']));
+    }
+
+    
+    //everything seems OK, just commit to the db
+    $app['db']->insert('pari_traffic', array(
+                         'user_id' => $userId,
+                         'troncon_id' => $troncon_id,
+                         'tps_trajet_pari' => $tps_trajet_pari,
+                         'mise' => $mise,
+                         'date_pari' => $datepari->format('Y-m-d H:i:s'),
+                         'date_create' => $datecreate->format('Y-m-d H:i:s'),
+                         ));
+    return $app->redirect("/");
+})
+    ->method('POST') ;
+
 
 // page point
 $app->get('/score', function() use ($app) {
@@ -106,3 +158,11 @@ function pariform(){
     $p = $app['db']->fetchAll('SELECT * FROM parking');
     return $p;
 }
+
+
+function tronconlist(){
+    global $app;
+    $p = $app['db']->fetchAll('SELECT * FROM troncon');
+    return $p;
+}
+
