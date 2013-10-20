@@ -1,32 +1,47 @@
 {% extends "layout.twig" %}
 
+{% block style %}
+{{ parent() }}
+
+<style>
+<!--
+input {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+-->
+</style>
+{% endblock %}
+
+
 {% block content %}
+    <div style="height:40px"></div>
     {% if app.user %}
         <p>Hello, {{ app.user.displayName }}.</p>
         <p><a href="{{ path('user.logout') }}">Sign out</a></p>
 
     {% else %}
         <div class="page-header">
-	<!--
+    <!--
             <h1>
                 Sign in<br/>
                 <small>Don't have an account? <a href="{{ path('user.register') }}">Register now.</a></small>
             </h1>
         </div>
-	-->
+    -->
         {% if error %}
             <div class="alert alert-error">{{ error|nl2br }}</div>
         {% endif %}
 
 
-	    <div align="center" class="inscription form">
-	      <img src="/img/login_inscription.png" width="297px" height="68px" > </img>
-	      
+        <div class="inscription form" style="margin:0 auto; width: 500px;">
+          <img src="/img/login_inscription.png" width="297px" height="68px" > </img>
 
 
 
 
-	      <form class="form-horizontal" method="POST">
+
+          <form class="form-horizontal" method="POST" action="{{ path('user.register') }}">
 
     <div class="control-group">
         <div class="controls">
@@ -57,7 +72,7 @@
 
     <div class="control-group">
            <div class="controls">
-             
+
                     <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-image:url('/img/login_valider.png')" />
         </div>
     </div>
@@ -67,9 +82,9 @@
 
 
 
-	    <div align="center" class="login form">
-	      <img src="/img/login_connexion.png" width="297px" height="68px" > </img>
-	      
+        <div align="center" class="login form">
+          <img src="/img/login_connexion.png" width="297px" height="68px" > </img>
+
 
 
 
@@ -102,12 +117,13 @@
             <div class="control-group">
                 <div class="controls">
                     <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-image:url('/img/login_valider.png')" />
-	
+
                 </div>
             </div>
 
         </form>
-	    </div>
+        </div>
+     </div>
 
     {% endif %}
 {% endblock %}

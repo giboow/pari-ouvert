@@ -126,6 +126,10 @@ footer {
 
 
 #content {
+    input[type=text] {
+        margin: 5px 0;
+        padding: 5px 0;
+    }
     font-size : 2em;
     background-color: $grey;
     padding-top: 100px;
