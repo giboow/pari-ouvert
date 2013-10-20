@@ -14,7 +14,7 @@ $darkBlue: #334d5c;
 }
 
 .ui-header, .ui-footer {
-    width: 100%;
+    width: 720px;
     position: fixed !important;
     text-shadow: none;
     z-index: 100;
@@ -25,6 +25,7 @@ $darkBlue: #334d5c;
 }
 body {
     background-color: $grey;
+    width: 720px;
 }
 
 
