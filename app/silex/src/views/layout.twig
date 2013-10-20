@@ -45,8 +45,16 @@
             </footer>
 
             <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-                coucou
-                <!-- panel content goes here -->
+                <ul class="nav" data-role="listview">
+                    <li><a href="{{ path('user.list') }}"><i class="icon-list"></i> List users</a></li>
+                    {% if app.user %}
+                    <li><a href="{{ path('user') }}"><i class="icon-user"></i> {{ app.user.displayName }}</a></li>
+                    <li><a href="{{ path('user.logout') }}"><i class="icon-off"></i> Sign out</a></li>
+                    {% else %}
+                    <li><a href="{{ path('user.login') }}">Sign in</a></li>
+                    <li><a href="{{ path('user.register') }}">Create account</a></li>
+                    {% endif %}
+                </ul>
             </div><!-- /panel -->
 
         </div><!-- page -->
