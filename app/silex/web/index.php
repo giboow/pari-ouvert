@@ -12,7 +12,6 @@ if(file_exists("configAppDev.php")) {
         $app['config'] = array_replace_recursive($app['config'], $configDev);
 }
 
-
 include 'config.php';
 
 use Symfony\Component\HttpFoundation\Request;
@@ -38,14 +37,11 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
     $userId = $request->get('userid');
 
     $current_date = new DateTime();
-    $current_date = $current_date->format('dd-mm-YYYY');
+    $current_date = $current_date->format('dd-mm-YYYY HH:ii');
 
     $parkingid = $request->get('parkingid');
 
     $datepari = $request->get('datepari');
-    if(!preg_match('/^(0[1-9]|1[0-9]|2[0-9]|3[01])\/(0[1-9]|1[012])\/[0-9]{4}$/',$datepari)){
-        return new Response("Il y a une erreur dans la date du pari !", 400);
-    }
 
     $nbplaces = $request->get('nbplaces');
     $err_range = $app['validator']->validateValue($nbplaces, new Assert\Range(array('min' =>  0)));
