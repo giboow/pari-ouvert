@@ -49,7 +49,7 @@
                 <img alt="" src="/img/big_header_login.jpg" width="720px" height="384px">
             </header>
             {% endif %}
-            <div id="content" class="big">
+            <div id="content" {% if(app.user) %} {% else %}class="big"{% endif %}>
             {% if(app.user or app.request.server.get("REQUEST_URI") == "/user/login" or app.request.server.get("REQUEST_URI") == "/user/register") %}
                 {% block content %}
                 {% endblock content %}
