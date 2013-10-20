@@ -130,11 +130,12 @@ footer .etats .pariDispo {
   margin: 0;
 }
 /* line 129, ../../compass/style.scss */
-#content input[type=text] {
+#content input[type=text], #content input[type=email], #content input[type=password], #content select {
   margin: 5px 0;
   padding: 5px 0;
+  font-size: 1em;
 }
-/* line 140, ../../compass/style.scss */
+/* line 141, ../../compass/style.scss */
 #content #index {
   margin-left: -20px;
   margin-top: -20px;
@@ -142,23 +143,23 @@ footer .etats .pariDispo {
   background-color: white;
   padding-top: 20px;
 }
-/* line 141, ../../compass/style.scss */
+/* line 142, ../../compass/style.scss */
 #content #index.large {
   width: 658px;
 }
-/* line 144, ../../compass/style.scss */
+/* line 145, ../../compass/style.scss */
 #content #index.medium {
   width: 588px;
 }
-/* line 152, ../../compass/style.scss */
+/* line 153, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
-/* line 155, ../../compass/style.scss */
+/* line 156, ../../compass/style.scss */
 #content #index .action:first-child {
   margin-top: 40px;
 }
-/* line 159, ../../compass/style.scss */
+/* line 160, ../../compass/style.scss */
 #content #submenu {
   position: absolute;
   width: 100%;
@@ -166,38 +167,38 @@ footer .etats .pariDispo {
   padding: 0 -20px;
   padding-bottom: 20px;
 }
-/* line 165, ../../compass/style.scss */
+/* line 166, ../../compass/style.scss */
 #content #submenu #pariDefi {
   padding-top: 10px;
   width: 600px;
   margin: 0 auto;
 }
-/* line 170, ../../compass/style.scss */
+/* line 171, ../../compass/style.scss */
 #content #submenu #pariDefi a {
   cursor: pointer;
   padding: 10px 20px;
   margin: 0 10px;
   float: left;
 }
-/* line 172, ../../compass/style.scss */
+/* line 173, ../../compass/style.scss */
 #content #submenu #pariDefi a.selected {
   color: white;
   background-color: #df5a49;
 }
-/* line 179, ../../compass/style.scss */
+/* line 180, ../../compass/style.scss */
 #content #submenu #pariDefi a.defi {
   float: right;
 }
-/* line 182, ../../compass/style.scss */
+/* line 183, ../../compass/style.scss */
 #content #submenu #pariDefi a.pari {
   float: left;
 }
-/* line 190, ../../compass/style.scss */
+/* line 191, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 193, ../../compass/style.scss */
+/* line 194, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;

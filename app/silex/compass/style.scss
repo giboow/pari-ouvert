@@ -126,9 +126,10 @@ footer {
 
 
 #content {
-    input[type=text] {
+    input[type=text],input[type=email],input[type=password], select {
         margin: 5px 0;
         padding: 5px 0;
+        font-size: 1em;
     }
     font-size : 2em;
     background-color: $grey;

@@ -33,95 +33,90 @@ input {
             <div class="alert alert-error">{{ error|nl2br }}</div>
         {% endif %}
 
-
-        <div class="inscription form" style="margin:0 auto; width: 500px;">
-          <img src="/img/login_inscription.png" width="297px" height="68px" > </img>
-
-
-
-
-
-          <form class="form-horizontal" method="POST" action="{{ path('user.register') }}">
-
-    <div class="control-group">
-        <div class="controls">
-            <input name="name" type="text" id="input-name" placeholder="Name" value="Nom d'utilisateur" style="color:teal;" required>
-        </div>
-    </div>
+        <div id="allInscription" style="width:500px;background-color:white;margin: -40px auto;padding:20px;">
+            <div class="inscription form" align="center">
+                <img src="/img/login_inscription.png" width="297px" height="68px" > </img>
+                <form class="form-horizontal" method="POST" action="{{ path('user.register') }}">
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="name" type="text" id="input-name" placeholder="Name" value="Nom d'utilisateur" style="color:teal;" required>
+                        </div>
+                    </div>
 
 
-    <div class="control-group">
-        <div class="controls">
-            <input name="password" type="password" id="input-password" required placeholder="Mot de passe" style="color:teal;">
-        </div>
-    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="password" type="password" id="input-password" required placeholder="Mot de passe" style="color:teal;">
+                        </div>
+                    </div>
 
 
-    <div class="control-group">
-        <div class="controls">
-            <input name="confirm_password" type="password" id="input-confirm-password" required placeholder="Confirmez le mot de passe" style="color:teal;">
-        </div>
-    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="confirm_password" type="password" id="input-confirm-password" required placeholder="Confirmez le mot de passe" style="color:teal;">
+                        </div>
+                    </div>
 
-    <div class="control-group">
-        <div class="controls">
-            <input name="email" type="email" id="input-email" placeholder="Email" required value="Votre adresse Email" style="color:teal;">
-        </div>
-    </div>
-
-
-    <div class="control-group">
-           <div class="controls">
-
-                    <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-image:url('/img/login_valider.png')" />
-        </div>
-    </div>
-</form>
-</div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="email" type="email" id="input-email" placeholder="Email" required value="Votre adresse Email" style="color:teal;">
+                        </div>
+                    </div>
 
 
+                    <div class="control-group">
+                           <div class="controls">
 
-
-        <div align="center" class="login form">
-          <img src="/img/login_connexion.png" width="297px" height="68px" > </img>
-
-
-
-
-
-
-        <form class="form-horizontal" method="POST" action="{{ path('user.login_check') }}">
-
-            <div class="control-group">
-                <div class="controls">
-                    <input name="_username" type="email" id="inputEmail" placeholder="Votre adresse Email" style="color:teal;border=1px;border-style=solid;" required value="user@user.com">
-                </div>
+                                    <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-color:white;background-image:url('/img/login_valider.png')" />
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <div class="control-group">
-                <div class="controls">
-                    <input name="_password" style="color:teal;" type="password" id="inputPassword" required placeholder="Mot de Passe" value="user">
-                </div>
-            </div>
 
-            {% if allowRememberMe %}
+
+
+            <div align="center" class="login form">
+              <img src="/img/login_connexion.png" width="297px" height="68px" > </img>
+
+
+
+
+
+
+            <form class="form-horizontal" method="POST" action="{{ path('user.login_check') }}">
+
                 <div class="control-group">
                     <div class="controls">
-                        <label class="checkbox" style="font-size:15px;">
-                            <input type="checkbox" name="_remember_me" value="true"  checked> Remember me
-                        </label>
+                        <input name="_username" type="email" id="inputEmail" placeholder="Votre adresse Email" style="color:teal;border=1px;border-style=solid;" required value="user">
                     </div>
                 </div>
-            {% endif %}
 
-            <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-image:url('/img/login_valider.png')" />
-
+                <div class="control-group">
+                    <div class="controls">
+                        <input name="_password" style="color:teal;" type="password" id="inputPassword" required placeholder="Mot de Passe" value="user">
+                    </div>
                 </div>
-            </div>
 
-        </form>
+                {% if allowRememberMe %}
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox" style="font-size:15px;">
+                                <input type="checkbox" name="_remember_me" value="true"  checked> Remember me
+                            </label>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn" style="border:none;width:165px;height:61px;background-image:url('/img/login_valider.png');background-color:white" />
+
+                    </div>
+                </div>
+
+            </form>
+            </div>
         </div>
      </div>
 
