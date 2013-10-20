@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `roles` varchar(255) NOT NULL DEFAULT '',
   `name` varchar(100) NOT NULL DEFAULT '',
   `time_created` int(11) NOT NULL DEFAULT '0',
-  `gain` bigint(20) unsigned NOT NULL,
+  `gain` bigint(20) unsigned NOT NULL DEFAULT '500',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;

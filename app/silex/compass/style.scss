@@ -33,6 +33,7 @@ html,body {
 
 
 header {
+    overflow: hidden;
     background : $white;
     //padding: 10px 0;
     position: fixed;
@@ -55,7 +56,6 @@ header {
         width: 451px;
         height: 101px;
         margin: 0 auto;
-        background: url("../img/logo_header.jpg") no-repeat;
     }
     /*#btPannel{
         border-radius: 0;
@@ -131,18 +131,33 @@ footer {
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
-    min-height: 2048px;
 
     #index {
         margin-left: -20px;
         margin-top: -20px;
         width: 584px;
+        height: 100%;
         background-color: $white;
         padding-top: 20px;
         .action {
             margin: 20px 0;
         }
-        min-height: 1500px;
+        #pariDefi {
+            margin: 0 auto;
+            width: 300px;
+            .pari {
+                background-color : $red;
+                float: left;
+                padding: 10px;
+                margin: 0 10px;
+                color: $white;
+            }
+            .defi {
+                float: left;
+                padding:  10px 20px;
+                margin: 0 10px;
+            }
+        }
     }
 
     #user {
