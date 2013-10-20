@@ -24,7 +24,7 @@ body {
 
 /* line 32, ../../compass/style.scss */
 header {
-  padding: 10px 0 0 10px;
+  padding: 10px 0;
   /*#btPannel{
       border-radius: 0;
       border: none;
@@ -67,7 +67,7 @@ footer {
 }
 /* line 69, ../../compass/style.scss */
 footer.ui-bar-a {
-  padding: 10px;
+  padding: 10px 0;
   background: white;
 }
 /* line 75, ../../compass/style.scss */
@@ -121,11 +121,12 @@ footer .etats .pariDispo {
 #content {
   background-color: #d6dbde;
   min-height: 400px;
-  padding: 60px;
+  padding: 60px 0;
+  width: 720px;
 }
 
 @media only screen and (min-device-width: 728px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 130, ../../compass/style.scss */
+  /* line 131, ../../compass/style.scss */
   #site {
     width: 720px;
     margin: 0 auto;

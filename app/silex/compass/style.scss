@@ -30,7 +30,7 @@ body {
 
 
 header {
-    padding: 10px 0 0 10px;
+    padding: 10px 0;
     &.ui-bar-a {
         background: $white;
         color: black;
@@ -67,7 +67,7 @@ footer {
 
 
     &.ui-bar-a {
-        padding: 10px;
+        padding: 10px 0;
         background: white;
     }
     text-shadow : none;
@@ -118,7 +118,8 @@ footer {
 #content {
     background-color: $grey;
     min-height:400px;
-    padding: 60px;
+    padding: 60px 0;
+    width: 720px;
 }
 
 
