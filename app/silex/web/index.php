@@ -12,7 +12,6 @@ if(file_exists("configAppDev.php")) {
         $app['config'] = array_replace_recursive($app['config'], $configDev);
 }
 
-
 include 'config.php';
 
 use Symfony\Component\HttpFoundation\Request;
@@ -38,7 +37,7 @@ $app->post('/pari/{type}', function(Request $request) use ($app){
     $userId = $request->get('userid');
 
     $current_date = new DateTime();
-    $current_date = $current_date->format('dd-mm-YYYY');
+    $current_date = $current_date->format('dd-mm-YYYY HH:ii');
 
     $parkingid = $request->get('parkingid');
 
