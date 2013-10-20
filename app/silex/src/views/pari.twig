@@ -1,11 +1,17 @@
 {% extends "layout.twig" %}
 
+
+
 {% block content %}
     <div id="index">
-        <div id="pariDefi">
-            <div class="pari">Parier</div>
-            <div class="defi">Défier</div>
-            <div class="clear"></div>
+        <div id="submenu">
+            <div id="pariDefi">
+                <a class="defi">Défier</a>
+                <a class="pari selected">Parier</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div style='height:90px'>
         </div>
         <div class="action parking">
             <a href="/pari/parking">
