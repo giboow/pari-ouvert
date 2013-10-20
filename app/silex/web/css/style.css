@@ -119,9 +119,31 @@ footer .etats .pariDispo {
 
 /* line 125, ../../compass/style.scss */
 #content {
+  font-size: 2em;
   background-color: #d6dbde;
-  padding-top: 110px;
+  padding-top: 80px;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0;
+}
+/* line 133, ../../compass/style.scss */
+#content #index {
+  margin-left: -20px;
+  width: 584px;
+  background-color: white;
+}
+/* line 137, ../../compass/style.scss */
+#content #index .action {
+  margin: 20px 0;
+}
+/* line 142, ../../compass/style.scss */
+#content #user {
+  margin: 20px 0;
+  padding-top: 20px;
+}
+/* line 145, ../../compass/style.scss */
+#content #user .name {
+  color: #4bb5a3;
+  font-weight: bold;
+  margin: 20px 0;
 }

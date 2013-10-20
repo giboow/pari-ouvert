@@ -1,24 +1,27 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-    {% if app.user %}
-    Bonjour, <span class="user">{{ app.user.getName }}</span>
-    {% endif %}
-
     <div id="index">
+        {% if app.user %}
+        <div id="user">
+            Bonjour, <span class="name">{{ app.user.getName }}</span>
+        </div>
+        {% endif %}
+
         <div class="action parier">
             <a href="">
-                BT 1
+                <img src="img/btn_home_parier.png" width="617px" height="230px"></img>
             </a>
         </div>
         <div class="action boutique">
             <a href="">
-                BT 2
+                <img src="img/btn_home_boutique.png" width="617px" height="230px"></img>
             </a>
         </div>
         <div class="action highscore">
             <a href="">
-            BT 3
+            <img src="img/btn_home_classement.png" width="617px" height="230px"></img>
+
             </a>
         </div>
     </div>
