@@ -25,49 +25,56 @@ $app->get('/', function() use ($app) {
 });
 
 // page de pari
-$app->get('/pari/{type}', function($type) use ($app) {
+$app->get('/pari/parking', function() use ($app) {
     $list = pariform();
     return $app['twig']->render(
                 "formpari.twig", array("list" => $list, "user" => $app['user'])
     );
 });
 
-$app->post('/pari/{type}', function(Request $request) use ($app){
+$app->match('/pari/parking', function (Request $request) use ($app) {
 
+    // some default data for when the form is displayed the first time
     $userId = $request->get('userid');
-
-    $current_date = new DateTime();
-    $current_date = $current_date->format('dd-mm-YYYY HH:ii');
-
     $parkingid = $request->get('parkingid');
 
-    $datepari = $request->get('datepari');
+    $datecreate = new DateTime();
+    $datepari = DateTime::createFromFormat('d/m/Y H:i', $request->get('datepari'));
+    
 
     $nbplaces = $request->get('nbplaces');
     $err_range = $app['validator']->validateValue($nbplaces, new Assert\Range(array('min' =>  0)));
 
     if (count($err_range) != 0 || !ctype_digit($nbplaces)){
-        return new Response("Il y a une erreur dans le nombre de places !", 400);
+        $list = pariform();
+        return $app['twig']->render(
+            "formpari.twig", array("list" => $list, "user" => $app['user']));
     }
 
     $mise = $request->get('mise');
     $err_range = $app['validator']->validateValue($mise, new Assert\Range(array('min' =>  1)));
 
     if (count($err_range) != 0 || !ctype_digit($mise)){
-        return new Response("Il y a une erreur dans la mise !", 400);
+        $list = pariform();
+        return $app['twig']->render(
+            "formpari.twig", array("list" => $list, "user" => $app['user']));
     }
 
+    
+    
     //everything seems OK, just commit to the db
     $app['db']->insert('pari_parking', array(
                          'user_id' => $userId,
                          'parking_id' => $parkingid,
                          'nb_place_pari' => $nbplaces,
                          'mise' => $mise,
-                         'date_pari' => $datepari,
-                         'date_create' => $current_date,
+                         'date_pari' => $datepari->format('Y-m-d H:i:s'),
+                         'date_create' => $datecreate->format('Y-m-d H:i:s'),
                          ));
-    return new Response("Le pari a été enregistré !", 201);
-  });
+    return $app->redirect("/");
+})
+    ->method('POST') ;
+
 
 // page point
 $app->get('/score', function() use ($app) {
