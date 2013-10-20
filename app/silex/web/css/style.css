@@ -141,15 +141,19 @@ footer .etats .pariDispo {
 #content #index.large {
   width: 658px;
 }
-/* line 145, ../../compass/style.scss */
+/* line 140, ../../compass/style.scss */
+#content #index.medium {
+  width: 588px;
+}
+/* line 148, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
-/* line 148, ../../compass/style.scss */
+/* line 151, ../../compass/style.scss */
 #content #index .action:first-child {
   margin-top: 40px;
 }
-/* line 152, ../../compass/style.scss */
+/* line 155, ../../compass/style.scss */
 #content #submenu {
   position: absolute;
   width: 100%;
@@ -157,38 +161,38 @@ footer .etats .pariDispo {
   padding: 0 -20px;
   padding-bottom: 20px;
 }
-/* line 158, ../../compass/style.scss */
+/* line 161, ../../compass/style.scss */
 #content #submenu #pariDefi {
   padding-top: 10px;
   width: 600px;
   margin: 0 auto;
 }
-/* line 163, ../../compass/style.scss */
+/* line 166, ../../compass/style.scss */
 #content #submenu #pariDefi a {
   cursor: pointer;
   padding: 10px 20px;
   margin: 0 10px;
   float: left;
 }
-/* line 165, ../../compass/style.scss */
+/* line 168, ../../compass/style.scss */
 #content #submenu #pariDefi a.selected {
   color: white;
   background-color: #df5a49;
 }
-/* line 172, ../../compass/style.scss */
+/* line 175, ../../compass/style.scss */
 #content #submenu #pariDefi a.defi {
   float: right;
 }
-/* line 175, ../../compass/style.scss */
+/* line 178, ../../compass/style.scss */
 #content #submenu #pariDefi a.pari {
   float: left;
 }
-/* line 183, ../../compass/style.scss */
+/* line 186, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 186, ../../compass/style.scss */
+/* line 189, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;

@@ -42,6 +42,12 @@ $app->get('/notifications', function() use ($app) {
     );
 });
 
+$app->get('/boutique', function() use ($app) {
+	return $app['twig']->render(
+			"boutique.twig", array()
+	);
+});
+
 // page de pari
 $app->get('/pari/parking', function() use ($app) {
     $list = pariform();
