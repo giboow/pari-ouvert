@@ -13,16 +13,7 @@ $darkBlue: #334d5c;
     clear: both;
 }
 
-.ui-header, .ui-footer {
-    width: 720px;
-    position: fixed !important;
-    text-shadow: none;
-    z-index: 100;
-}
 
-.ui-body-c, .ui-overlay-c {
-    background: $grey;
-}
 body {
     background-color: $grey;
     width: 720px;
@@ -30,6 +21,7 @@ body {
 
 
 header {
+    background : $white;
     padding: 10px 0;
     &.ui-bar-a {
         background: $white;
@@ -59,9 +51,14 @@ header {
         }
     }*/
     height: 60px;
+    a{
+        float: left;
+    }
 }
 
 footer {
+    width: 720px;
+    background : $white;
     position: fixed;
     bottom: 0;
 
@@ -79,6 +76,8 @@ footer {
         text-shadow : none;
     }
     .etats {
+       padding: 10px 0;
+        color: $white;
         font-size: 0.7em;
         width: 275px;
         margin: 0 auto;
