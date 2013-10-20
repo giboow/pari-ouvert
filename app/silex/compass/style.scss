@@ -40,11 +40,13 @@ header {
         background-color: $red;
         color: $white;
         padding: 5px 20px;
-        margin: 0 30px;
+        margin: 0 20px;
     }
     .logo{
-        width: 100px;
+        width: 312px;
+        height: 57px;
         margin: 0 auto;
+        background: url("../img/logo_header.jpg") no-repeat;
     }
     /*#btPannel{
         border-radius: 0;
@@ -54,7 +56,7 @@ header {
             border: none;
         }
     }*/
-    height: 40px;
+    height: 60px;
 }
 
 footer {
