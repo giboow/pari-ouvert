@@ -78,12 +78,14 @@ footer.ui-bar-a {
 }
 /* line 87, ../../compass/style.scss */
 footer #copy {
+  font-size: 1.7em;
+  padding: 10px 0;
   width: 100%;
   text-align: center;
   color: black;
   text-shadow: none;
 }
-/* line 93, ../../compass/style.scss */
+/* line 95, ../../compass/style.scss */
 footer .etats {
   font-size: 1.7em;
   padding: 10px 0;
@@ -92,7 +94,7 @@ footer .etats {
   margin: 0 auto;
   text-shadow: none;
 }
-/* line 100, ../../compass/style.scss */
+/* line 102, ../../compass/style.scss */
 footer .etats .points {
   padding: 10px 20px;
   background-color: #334d5c;
@@ -100,7 +102,7 @@ footer .etats .points {
   width: 220px;
   text-align: center;
 }
-/* line 107, ../../compass/style.scss */
+/* line 109, ../../compass/style.scss */
 footer .etats .divider {
   border-left: 1px solid #808080;
   float: left;
@@ -108,7 +110,7 @@ footer .etats .divider {
   margin: 0 10px;
   width: 1px;
 }
-/* line 114, ../../compass/style.scss */
+/* line 116, ../../compass/style.scss */
 footer .etats .pariDispo {
   padding: 10px 20px;
   width: 220px;
@@ -117,7 +119,7 @@ footer .etats .pariDispo {
   text-align: center;
 }
 
-/* line 125, ../../compass/style.scss */
+/* line 127, ../../compass/style.scss */
 #content {
   font-size: 2em;
   background-color: #d6dbde;
@@ -127,23 +129,23 @@ footer .etats .pariDispo {
   margin: 0;
   min-height: 1024px;
 }
-/* line 134, ../../compass/style.scss */
+/* line 136, ../../compass/style.scss */
 #content #index {
   margin-left: -20px;
   width: 584px;
   background-color: white;
   min-height: 1024px;
 }
-/* line 138, ../../compass/style.scss */
+/* line 140, ../../compass/style.scss */
 #content #index .action {
   margin: 20px 0;
 }
-/* line 144, ../../compass/style.scss */
+/* line 146, ../../compass/style.scss */
 #content #user {
   margin: 20px 0;
   padding-top: 20px;
 }
-/* line 147, ../../compass/style.scss */
+/* line 149, ../../compass/style.scss */
 #content #user .name {
   color: #4bb5a3;
   font-weight: bold;
