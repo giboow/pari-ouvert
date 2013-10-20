@@ -127,20 +127,37 @@ footer {
 #content {
     font-size : 2em;
     background-color: $grey;
-    padding-top: 80px;
+    padding-top: 100px;
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
-    min-height: 1024px;
 
     #index {
         margin-left: -20px;
+        margin-top: -20px;
         width: 584px;
+        height: 100%;
         background-color: $white;
+        padding-top: 20px;
         .action {
             margin: 20px 0;
         }
-        min-height: 1024px;
+        #pariDefi {
+            margin: 0 auto;
+            width: 300px;
+            .pari {
+                background-color : $red;
+                float: left;
+                padding: 10px;
+                margin: 0 10px;
+                color: $white;
+            }
+            .defi {
+                float: left;
+                padding:  10px 20px;
+                margin: 0 10px;
+            }
+        }
     }
 
     #user {

@@ -8,6 +8,10 @@
 
         {% block style %}
         <meta charset="UTF-8">
+        {% if(app.user) %}
+        {% elseif(app.request.server.get("REQUEST_URI") != "/user/login" and app.request.server.get("REQUEST_URI") != "/user/register") %}
+        <meta http-equiv="refresh" content="0;URL=/user/login">
+        {% endif %}
         <meta name="viewport" content="content-width=480px">
         <link rel="stylesheet" type="text/css" href="/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
@@ -41,8 +45,11 @@
             </header><!-- /header -->
 
             <div id="content">
+            {% if(app.user or app.request.server.get("REQUEST_URI") == "/user/login" or app.request.server.get("REQUEST_URI") == "/user/register") %}
                 {% block content %}
                 {% endblock content %}
+
+            {% endif %}
             </div><!-- /content -->
             <!-- footer -->
             <footer>
